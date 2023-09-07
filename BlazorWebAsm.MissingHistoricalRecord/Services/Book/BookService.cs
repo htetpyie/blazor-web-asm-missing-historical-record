@@ -11,8 +11,25 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.Book
             _supabase = supabase;
         }
 
-        public Task GetBook(Guid bookId)
+        public async Task<BookListResponseModel> GetBookList(int pageNo = 1, int pageSize = 4)
         {
+            BookListResponseModel bookList = new();
+            try
+            {
+                var dataList = await _supabase
+                .GetListByPaginationAsync<BookDataModel>(
+                (x => x.IsDelete == false),
+                pageNo,
+                pageSize);
+                bookList.BookList = dataList.Select(x => x.Change()).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+            return bookList;
         }
     }
 }

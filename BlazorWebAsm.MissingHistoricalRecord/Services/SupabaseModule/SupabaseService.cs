@@ -27,7 +27,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
             };
             try
             {
-                if(SupabaseConnection == null)
+                if (SupabaseConnection == null)
                 {
                     SupabaseConnection = new Supabase.Client(url, key, options);
                 }
@@ -53,7 +53,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
             return result.Model;
         }
 
-        public async Task<List<T>> GetListAsync<T>(
+        public async Task<List<T>> GetAllAsync<T>(
        Expression<Func<T, object[]>> predicate,
        Expression<Func<T, bool>> wherePredicate)
        where T : BaseModel, new()
@@ -67,6 +67,22 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
             return result.Models;
         }
 
+        public async Task<List<T>> GetListByPaginationAsync<T>(
+            Expression<Func<T, bool>> wherePredicate,
+            int pageNo = 1, int pageSize = 10)
+             where T : BaseModel, new()
+        {
+            int from = pageNo * pageSize + 1;
+            int to = from + pageSize - 1;
+
+            var result = await SupabaseConnection
+             .From<T>()
+             .Where(wherePredicate)
+             .Range(from, to)
+             .Get();
+
+            return result.Models;
+        }
 
         public async Task<T?> InsertAsync<T>(T data)
             where T : BaseModel, new()
