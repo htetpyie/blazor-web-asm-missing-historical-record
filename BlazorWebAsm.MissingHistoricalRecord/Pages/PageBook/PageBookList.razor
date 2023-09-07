@@ -3,9 +3,11 @@
 
 <h3>PageBookList</h3>
 
-@foreach (var book in BookListResponse.BookList)
+@if(BookListResponse is not null){
+    @foreach (var book in BookListResponse.BookList)
 {
     <div>@book.BookTitle</div>
+}
 }
 
 @code {
