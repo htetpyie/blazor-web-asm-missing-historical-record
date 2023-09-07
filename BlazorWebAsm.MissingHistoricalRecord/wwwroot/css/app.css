@@ -1,12 +1,10 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-@font-face {
+﻿@font-face {
     font-family: CenturyBurma;
     src: url('../fonts/Century Burma.ttf');
 }
 
 html, body {
-    font-family: CenturyBurma, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: CenturyBurma, Arial, sans-serif;
 }
 
 h1:focus {
