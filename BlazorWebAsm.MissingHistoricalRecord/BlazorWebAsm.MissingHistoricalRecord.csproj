@@ -23,4 +23,12 @@
     <Folder Include="Services\BookCategory\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Styles\tailwind.css" />
+  </ItemGroup>
+
 </Project>
