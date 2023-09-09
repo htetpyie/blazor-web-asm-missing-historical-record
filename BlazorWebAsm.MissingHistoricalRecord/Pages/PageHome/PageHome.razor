@@ -1,16 +1,17 @@
 ﻿@page "/"
 
-    <MudContainer>
-        <MudGrid>
-            <MudItem sm="12" md="8">
-                <MudPaper Height="400px" Width="100%">
-                    <PageCarousel></PageCarousel>
-                </MudPaper>
-            </MudItem>
-            <MudItem sm="12" md="4">
-                <MudPaper Width="100%" Elevation="0">
-                    <PageUserInfo></PageUserInfo>
-                </MudPaper>
-            </MudItem>
-        </MudGrid>
-    </MudContainer>
+<MudContainer>
+    <MudGrid>
+        <MudItem sm="12" md="8">
+            <MudPaper Width="100%">
+                <PageCarousel></PageCarousel>
+                <PageTabs></PageTabs>
+            </MudPaper>
+        </MudItem>
+        <MudItem sm="12" md="4">
+            <MudPaper Width="100%" Elevation="0">
+                <PageUserInfo></PageUserInfo>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
