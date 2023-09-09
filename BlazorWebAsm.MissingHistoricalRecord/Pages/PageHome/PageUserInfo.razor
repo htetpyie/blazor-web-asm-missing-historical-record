@@ -1,0 +1,33 @@
+﻿<MudPaper Class="pa-16 ma-20 rounded-lg" Outlined="true" Square="true">
+    <div class="flex">
+        <div>
+            <MudImage Src="./img/books.png" Style="width:30px; height: 30px;" Alt="User Profile" Elevation="25" Class="rounded-lg" />
+        </div>
+        <div class="ml-auto">
+            <div>Htet Pyie</div>
+            <div>hppm</div>
+        </div>
+    </div>
+    <div class="my-5">
+        <div style="font-size: 1rem;" class="text-lg">
+            Your Reading Progress
+        </div>
+        <div style="font-size: 0.8rem;">800 pages left from 2 books</div>
+        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75" />
+    </div>
+
+    <div class="my-5">
+        <MudNavGroup Title="Reading List" Icon="@Icons.Material.Filled.Favorite" >
+            <MudNavLink Href="/users">Users</MudNavLink>
+            <MudNavLink Href="/security">Security</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Bookmarks" Icon="@Icons.Material.Filled.Favorite" >
+            <MudNavLink Href="/users">Users</MudNavLink>
+            <MudNavLink Href="/security">Security</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Help & Feedback" Icon="@Icons.Material.Filled.Favorite" >
+            <MudNavLink Href="/users">Users</MudNavLink>
+            <MudNavLink Href="/security">Security</MudNavLink>
+        </MudNavGroup>
+    </div>
+</MudPaper>
