@@ -48,7 +48,7 @@ else if (_bookShelf is not null && _bookShelf.BookList.Count > 4)
 }
 @if (_bookShelf is not null)
 {
-    <div class="text-center" style="text-align: center;margin-top: -2rem;">
+    <div class="text-center" style="text-align: center;margin-top: -2.5rem;">
         <MudPagination SelectedChanged="PageChanged" ShowFirstButton="true" ShowLastButton="true"
                        Count="@(_bookShelf.TotalPage)"
                        Class="mt-0 pt-0" />
