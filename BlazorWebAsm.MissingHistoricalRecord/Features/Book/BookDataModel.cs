@@ -1,7 +1,7 @@
 ﻿using Postgrest.Attributes;
 using Postgrest.Models;
 
-namespace BlazorWebAsm.MissingHistoricalRecord.Services.Book
+namespace BlazorWebAsm.MissingHistoricalRecord.Features.Book
 {
     [Table("Tbl_book")]
     public class BookDataModel : BaseModel
@@ -23,7 +23,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.Book
         [Column("status")]
         public string? Status { get; set; }
         [Column("created_date")]
-        public DateTime? CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
         [Column("created_by")]
         public int? CreatedBy { get; set; }
         [Column("modified_date")]

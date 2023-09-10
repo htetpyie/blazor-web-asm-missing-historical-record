@@ -1,4 +1,4 @@
-﻿namespace BlazorWebAsm.MissingHistoricalRecord.Services.Book
+﻿namespace BlazorWebAsm.MissingHistoricalRecord.Features.Book
 {
     public class BookResponseModel
     {
@@ -10,11 +10,5 @@
         public string? BookCover { get; set; }
         public string? BookAuthor { get; set; }
         public string? Status { get; set; }
-    }
-
-    public class BookListResponseModel
-    {
-        public List<BookResponseModel> BookList { get; set; }
-        public int BookCount { get; set; }
     }
 }

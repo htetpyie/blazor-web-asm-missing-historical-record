@@ -9,11 +9,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookListResponseModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookMarkDataModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Enums/EnumBookStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/icon-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/icon-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/sample-data/weather.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookDataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookDataModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/ChangeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,25 +39,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\htetp\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\htetp\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\htetp\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\htetp\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\htetp\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\htetp\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.BlazorWebAsm.MissingHistoricalRecord">
     <configuration name="BlazorWebAsm.MissingHistoricalRecord" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" />
@@ -92,6 +100,7 @@
       <updated>1694180785499</updated>
       <workItem from="1694180811787" duration="669000" />
       <workItem from="1694185734151" duration="840000" />
+      <workItem from="1694339557705" duration="1271000" />
     </task>
     <servers />
   </component>

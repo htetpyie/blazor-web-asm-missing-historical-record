@@ -1,6 +1,6 @@
 using BlazorWebAsm.MissingHistoricalRecord;
-using BlazorWebAsm.MissingHistoricalRecord.Services.Book;
-using BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule;
+using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
+using BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;

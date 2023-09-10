@@ -5,7 +5,7 @@ using System.Reflection;
 using Websocket.Client;
 using static Postgrest.QueryOptions;
 
-namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
+namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
 {
     public class SupabaseService
     {
@@ -84,6 +84,23 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
             return result.Models;
         }
 
+        public async Task<List<T>> GetLatestListAsync<T>(
+            Expression<Func<T, bool>> wherePredicate,
+            Expression<Func<T, object>> Orderbypredicate, 
+            Constants.Ordering ordering,
+            int pageSize = 10)
+             where T : BaseModel, new()
+        {
+            var result = await SupabaseConnection
+             .From<T>()
+             .Where(wherePredicate)
+             .Order(Orderbypredicate, ordering)
+             .Limit(pageSize)
+             .Get();
+
+            return result.Models;
+        }
+
         public async Task<T?> InsertAsync<T>(T data)
             where T : BaseModel, new()
         {
@@ -113,5 +130,15 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Services.SupabaseModule
             return response.ResponseMessage != null;
         }
 
+        public async Task<int> CountAsync<T>(
+            Expression<Func<T, bool>> wherePredicate
+      ) where T : BaseModel, new()
+        {
+            var count = await SupabaseConnection
+                .From<T>()
+                .Where(wherePredicate)
+                .Count(Constants.CountType.Exact);
+            return count;
+        }
     }
 }

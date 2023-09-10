@@ -1,6 +1,6 @@
-﻿using BlazorWebAsm.MissingHistoricalRecord.Services.Book;
+﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
 
-namespace BlazorWebAsm.MissingHistoricalRecord.Services
+namespace BlazorWebAsm.MissingHistoricalRecord.Features
 {
     public static class ChangeModel
     {

@@ -19,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\BookContent\" />
-    <Folder Include="Services\BookCategory\" />
+    <Folder Include="Features\BookContent\" />
+    <Folder Include="Features\BookCategory\" />
   </ItemGroup>
 
   <ItemGroup>
