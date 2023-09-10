@@ -111,14 +111,21 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
         {
             int from = pageNo * pageSize + 1;
             int to = from + pageSize - 1;
+            try
+            {
+                var result = await SupabaseConnection
+                    .From<T>()
+                    .Where(wherePredicate)
+                    .Range(from, to)
+                    .Get();            
+                return result.Models;
 
-            var result = await SupabaseConnection
-                .From<T>()
-                .Where(wherePredicate)
-                .Range(from, to)
-                .Get();
-
-            return result.Models;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public async Task<List<T>> GetLatestListAsync<T>(

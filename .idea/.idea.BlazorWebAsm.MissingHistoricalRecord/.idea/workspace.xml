@@ -9,11 +9,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="change from services to features">
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/DevCode/Extension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookShelf/BookShelfResponseModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookShelf/BookShelfService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Home/HomeService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/bookshelf.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/0b244a5e-de4e-481e-9f78-b1c730336899.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/19f7d129-1559-4500-82c3-c84156b3c134.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/1b3ef1ae-9a0b-4c61-9ae5-47e02f0988fe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/201d5de6-6cf2-45a8-9347-cd7dcdf61324.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/22a2cd5a-4304-4b77-a6ad-766569cded5c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/249eb61d-45d6-4709-8974-6b55d857a1e2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/41711dee-711c-4f7f-8d4b-5c8e65641c31.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/4ba4e586-970a-4813-87bb-5fecaade0765.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/4fc4885c-53c4-4443-bb6a-0c2d4284db74.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/550dd151-a4dc-4796-b419-9ffcf7436da6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/55926c58-ca89-4448-b720-2983253edb89.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/57ee10f6-0c5f-4c7c-8b41-ca34f836e8b3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/59e9cdf3-6cb6-45c7-ae7c-992efae00d89.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/5c2fdc1d-ac27-4ff6-9cbf-7d7eaede9d42.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/5e22ce4e-75a9-4b56-a3a5-8f4fdcff5a30.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/61396182-1cef-4d8a-aecf-71be56404d87.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/66ccebe5-1079-4510-9890-7a7eb6cf3e45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/6c040df7-0ca3-48d3-b728-1eed5c77ac22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/6e561a6f-39bb-485b-9c5e-7e2659ed4bb2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/6f040d09-4d16-4e59-b2ad-7adf67df6dd0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/78bba624-2526-48ae-aa08-5e00bca1220d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/7b40d419-fc6a-4fdd-baef-36e2df7dac6f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/8769155b-57a6-4671-9803-d04216645eda.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/8f1ed122-792f-4459-afd7-6b416f7d4dd4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/91b0719e-6a11-4c39-ac47-a3d3e8d3d85a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/92d5d5b5-4674-47e9-9dd4-a24e8619de02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/a3f6c2ec-1bb3-432d-b44c-41178c45a7de.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/a5d059fe-724b-4b78-b6bc-15890d59fbd1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/ad8cca06-b678-4675-a49f-397cdfbbf0ef.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/aee383cb-cc10-437e-a4f9-52caa166bd22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/b9c001bb-52cc-4e43-804c-937749bcbc51.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/c274d66f-3c40-4626-9e4f-8c0c2877ac74.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/c2b486bd-122c-409e-89d7-15449a1c564d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/cad50c11-7ac1-4148-974d-a57b9b89e49c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/cd5896f4-59cb-4b6d-964f-fba5529e3e9b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/d021e046-4a88-4585-bc36-0f07281634bd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/e4c7c38a-96b8-4683-bb8c-222ec12f0fa0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/e7185118-99f3-4f0d-9e69-adb21115422e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/e9a7d4dc-868b-4366-8e0b-366c5f915025.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/ea891e97-05c4-4cb5-89e6-aef8688633b1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/eaa9b1f5-1dbe-42ab-b431-4f42691bf141.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/eb1f605b-c3bc-4dbb-96cd-8349cbce1f1c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/upload/ecc514b1-323d-41a4-b3e7-f4fab1464f9c.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookMarkDataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkDataModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookDataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookDataModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookListResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookListResponseModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookResponseModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/PageBook/PageBookList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBookList.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/PageHome/PageCarousel.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageCarousel.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/PageHome/PageHome.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageHome.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/PageHome/PageTabs.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageTabs.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/PageHome/PageUserInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageUserInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/loading.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/loading.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +160,7 @@
       <workItem from="1694180811787" duration="669000" />
       <workItem from="1694185734151" duration="840000" />
       <workItem from="1694339557705" duration="3177000" />
+      <workItem from="1694357254781" duration="4920000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -117,5 +180,37 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="change from services to features" />
     <option name="LAST_COMMIT_MESSAGE" value="change from services to features" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookShelf/BookShelfService.cs</url>
+          <line>52</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\BookShelf\BookShelfService.cs" initialLine="50" containingFunctionPresentation="Method 'GetBookShelf'">
+            <startOffsets>
+              <option value="1601" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1602" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs</url>
+          <line>124</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\SupabaseModule\SupabaseService.cs" initialLine="124" containingFunctionPresentation="Method 'GetListByPaginationAsync'">
+            <startOffsets>
+              <option value="3688" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3689" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

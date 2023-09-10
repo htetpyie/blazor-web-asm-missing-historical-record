@@ -2,7 +2,7 @@
 {
     public class BookListResponseModel
     {
-        public List<BookResponseModel> BookList { get; set; }
+        public List<BookViewModel> BookList { get; set; }
         public int BookCount { get; set; }
     }
 }

@@ -5,10 +5,10 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features
 {
     public static class ChangeModel
     {
-        public static BookResponseModel Change(this BookDataModel data)
+        public static BookViewModel Change(this BookDataModel data)
         {
             if (data == null) return new();
-            return new BookResponseModel
+            return new BookViewModel
             {
                 BookId = data.BookId,
                 BookAuthor = data.BookAuthor,

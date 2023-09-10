@@ -3,11 +3,12 @@
 
 <h3>PageBookList</h3>
 
-@if(BookListResponse is not null){
-    @foreach (var book in BookListResponse.BookList)
+@if (BookListResponse is not null)
 {
-    <div>@book.BookTitle</div>
-}
+    @foreach (var book in BookListResponse.BookList)
+    {
+        <div>@book.BookTitle</div>
+    }
 }
 
 @code {
@@ -15,6 +16,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        BookListResponse = await _bookService.GetBookList();
+       // BookListResponse = await _bookService.GetBookList();
     }
+
 }

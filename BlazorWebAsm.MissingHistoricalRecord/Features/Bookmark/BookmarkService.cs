@@ -16,7 +16,7 @@ public class BookmarkService
     {
         try
         {
-            var data = await _supabase.InsertAsync<>(model.Change());
+            var data = await _supabase.InsertAsync(model.Change());
             return data != null;
         }
         catch (Exception e)
