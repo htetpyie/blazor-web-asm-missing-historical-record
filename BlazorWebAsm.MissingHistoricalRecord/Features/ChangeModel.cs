@@ -1,4 +1,5 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
+using BlazorWebAsm.MissingHistoricalRecord.Features.Bookmark;
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features
 {
@@ -17,6 +18,18 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features
                 BookCategoryCode = data.BookCategoryCode,
                 BookDescription = data.BookDescription,
                 Status = data.Status
+            };
+        }
+        
+        public static BookmarkDataModel Change(this BookmarkViewModel model)
+        {
+            if (model == null) return null;
+            return new BookmarkDataModel
+            {
+              BookId = model.BookId,
+              BookCode =  model.BookCode,
+              PageNo = model.PageNo,
+              CreatedDate = DateTime.Now,
             };
         }
     }

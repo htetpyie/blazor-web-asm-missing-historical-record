@@ -4,7 +4,7 @@ using Postgrest.Models;
 namespace BlazorWebAsm.MissingHistoricalRecord.Features.Bookmark;
 
 [Table("Tbl_bookmark")]
-public class BookMarkDataModel:BaseModel
+public class BookmarkDataModel:BaseModel
 {
     [PrimaryKey("bookmark_id")]
     public Guid BookMarkId { get; set; }

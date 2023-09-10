@@ -8,20 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookListResponseModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookMarkDataModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Enums/EnumBookStatus.cs" afterDir="false" />
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="change from services to features">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookDataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookDataModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookResponseModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookResponseModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/Book/BookService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/ChangeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Services/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookMarkDataModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkDataModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,9 +23,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61058659d8224072afab65fd498e6082fa00/3e/3f973f3a/IPostgrestTable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2V7IcVfwoCh2hEn40Qo4q9oOM4r" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -100,14 +97,25 @@
       <updated>1694180785499</updated>
       <workItem from="1694180811787" duration="669000" />
       <workItem from="1694185734151" duration="840000" />
-      <workItem from="1694339557705" duration="1271000" />
+      <workItem from="1694339557705" duration="3177000" />
     </task>
+    <task id="LOCAL-00001" summary="change from services to features">
+      <created>1694340892190</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694340892190</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="change from services to features" />
+    <option name="LAST_COMMIT_MESSAGE" value="change from services to features" />
   </component>
 </project>
