@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\BookContent\" />
     <Folder Include="Features\BookCategory\" />
   </ItemGroup>
 

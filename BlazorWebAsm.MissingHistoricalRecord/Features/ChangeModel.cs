@@ -1,4 +1,5 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
+using BlazorWebAsm.MissingHistoricalRecord.Features.BookContent;
 using BlazorWebAsm.MissingHistoricalRecord.Features.Bookmark;
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features
@@ -30,6 +31,16 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features
               BookCode =  model.BookCode,
               PageNo = model.PageNo,
               CreatedDate = DateTime.Now,
+            };
+        }
+        
+        public static BookContentViewModel Change(this BookContentDataModel data)
+        {
+            if (data == null) return null;
+            return new BookContentViewModel
+            {
+                BookContentPageNo = data.BookContentPageNo,
+                BookContentText = data.BookContentText
             };
         }
     }

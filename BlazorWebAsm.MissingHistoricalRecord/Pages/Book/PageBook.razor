@@ -1,0 +1,37 @@
+﻿@page "/book"
+@inject BookService _bookService
+
+@if (_response is not null)
+{
+    <MudGrid>
+        @{
+            var item = _response.BookContents.Max(x => x.BookContentText);
+        }
+        @foreach (var t in _response.BookContents)
+        {
+            string content = t.BookContentText;
+            if (content.Length < item.Length)
+            {
+                content = content + "".PadLeft(item.Length - content.Length, ' ');
+            }
+            <MudItem xs="6">
+                <MudPaper MinHeight="700px" Style="line-height: 24px; background: oldlace;" Class="@(@"d-flex pl-5 pr-5 mud-width-full py-8")">
+                    <div style="position: relative;">
+                        <span style="position: absolute; top: -30px; right: 50%;">@t.BookContentPageNo.ToDigitMyanmar()</span>
+                        @((MarkupString)content)
+                    </div>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+}
+
+@code {
+    private BookPageResponseModel _response { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+       // BookListResponse = await _bookService.GetBookList();
+    }
+
+}

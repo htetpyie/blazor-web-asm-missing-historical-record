@@ -32,6 +32,7 @@
     -o-object-fit: cover;
     object-fit: cover;
     aspect-ratio: 115/180;
+    cursor: pointer;
 }
 
 .shelf-shadows {

@@ -8,10 +8,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="added photo and book shelf list">
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="bookshelf pagination done">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookPageResponseModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentDataModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookMarkDataModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/ChangeModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBookList.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/bookshelf.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/bookshelf.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694363490916</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="bookshelf pagination done">
+      <created>1694440313092</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694440313092</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,24 +140,12 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="change from services to features" />
     <MESSAGE value="added photo and book shelf list" />
-    <option name="LAST_COMMIT_MESSAGE" value="added photo and book shelf list" />
+    <MESSAGE value="bookshelf pagination done" />
+    <option name="LAST_COMMIT_MESSAGE" value="bookshelf pagination done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookShelf/BookShelfService.cs</url>
-          <line>52</line>
-          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\BookShelf\BookShelfService.cs" initialLine="50" containingFunctionPresentation="Method 'GetBookShelf'">
-            <startOffsets>
-              <option value="1601" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1602" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs</url>
           <line>124</line>
@@ -153,6 +158,34 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor</url>
+          <line>77</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Pages\BookShelf\PageBookShelf.razor" initialLine="76" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor</url>
+          <line>3</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Pages\Book\PageBook.razor" initialLine="6" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

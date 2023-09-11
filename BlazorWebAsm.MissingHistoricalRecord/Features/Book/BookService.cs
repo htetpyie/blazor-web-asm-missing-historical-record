@@ -11,7 +11,6 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.Book
         {
             _supabase = supabase;
         }
-        
        
     }
 }
