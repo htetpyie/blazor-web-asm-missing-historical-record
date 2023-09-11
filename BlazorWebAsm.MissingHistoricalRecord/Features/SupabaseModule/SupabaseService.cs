@@ -109,7 +109,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
             int pageNo = 1, int pageSize = 10)
             where T : BaseModel, new()
         {
-            int from = pageNo * pageSize + 1;
+            int from = (pageNo -1) * pageSize;
             int to = from + pageSize - 1;
             try
             {

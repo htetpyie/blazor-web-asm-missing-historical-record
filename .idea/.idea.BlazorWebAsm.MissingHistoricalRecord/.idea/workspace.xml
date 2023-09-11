@@ -8,7 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="added photo and book shelf list" />
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="added photo and book shelf list">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/SupabaseModule/SupabaseService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/BookShelf/PageBookShelf.razor" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,10 +146,10 @@
           <line>124</line>
           <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\SupabaseModule\SupabaseService.cs" initialLine="124" containingFunctionPresentation="Method 'GetListByPaginationAsync'">
             <startOffsets>
-              <option value="3688" />
+              <option value="3689" />
             </startOffsets>
             <endOffsets>
-              <option value="3689" />
+              <option value="3690" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
