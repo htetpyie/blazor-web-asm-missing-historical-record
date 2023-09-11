@@ -1,5 +1,5 @@
-﻿@page "/book"
-@inject BookService _bookService
+﻿@page "/book/{BookCode}"
+@inject BookContentService _bookContentService; 
 
 @if (_response is not null)
 {
@@ -27,11 +27,16 @@
 }
 
 @code {
-    private BookPageResponseModel _response { get; set; }
+
+    [Parameter]
+    public string BookCode { get; set; }
+
+    private BookContentResponseModel _response { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-       // BookListResponse = await _bookService.GetBookList();
+    // BookListResponse = await _bookService.GetBookList();
+        _response = await _bookContentService.GetBookPageContents(BookCode);
     }
 
 }

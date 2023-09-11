@@ -2,7 +2,7 @@
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features.BookContent;
 
-public class BookPageResponseModel
+public class BookContentResponseModel
 {
     public List<BookContentViewModel> BookContents { get; set; }
     public string BookName { get; set; }

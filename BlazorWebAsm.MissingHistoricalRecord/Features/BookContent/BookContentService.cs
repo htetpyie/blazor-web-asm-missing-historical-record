@@ -12,10 +12,10 @@ public class BookContentService
     {
         _supabase = supabase;
     }
-    
-    public async Task<BookPageResponseModel> GetBookPageContents(string bookCode,int pageNo = 2)
+
+    public async Task<BookContentResponseModel> GetBookPageContents(string bookCode, int pageNo = 1)
     {
-        BookPageResponseModel response = new();
+        BookContentResponseModel response = new();
         try
         {
             var contentCount = await _supabase
@@ -35,7 +35,7 @@ public class BookContentService
                     x.BookCode == bookCode &&
                     x.IsDelete == false);
             string bookName = (book != null) ? book.BookTitle : "Unknown";
-            
+
             response.ContentCount = contentCount;
             response.IsBookMark = isBookMark;
             response.BookContents = bookContents;
@@ -46,7 +46,7 @@ public class BookContentService
             Console.WriteLine(e);
             throw;
         }
-            
+
         return response;
     }
 
@@ -55,7 +55,7 @@ public class BookContentService
         foreach (var item in list)
         {
             var result = await _supabase
-                .GetAsync<BookmarkDataModel>(x => 
+                .GetAsync<BookmarkDataModel>(x =>
                     x.BookCode == item.BookCode &&
                     x.PageNo == item.BookContentPageNo);
             if (result is not null) return true;
