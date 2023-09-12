@@ -14,26 +14,27 @@ public class BookContentService
     }
 
     public async Task<BookContentResponseModel?> GetBookPageContents(
-        string bookId, string bookCode, int pageNo = 0)
+        string bookId, int pageNo = 0)
     {
         BookContentResponseModel response = new();
         try
         {
-            Guid bookIdAsGuid = new Guid(bookId);
+            var isValid = Guid.TryParse(bookId, out Guid bookIdAsGuid);
+            if (!isValid) return null;
+
             var book = await _supabase
                 .GetAsync<BookDataModel>(x =>
                     x.BookId == bookIdAsGuid &&
-                    x.BookCode == bookCode &&
                     x.IsDelete == false);
 
             //For book id validation
             if (book is null) return null;
 
-            var contentData = await GetBookContentData(bookCode, pageNo);
-            var bookContents = await GetBookContents(bookCode, pageNo);
+            var contentData = await GetBookContentData(book.BookCode, pageNo);
+            var bookContents = await GetBookContents(book.BookCode, pageNo);
             response.IsBookMark = await IsBookMark(contentData);
             response.BookContents = bookContents;
-            response.ContentCount = await GetBookContentCount(bookCode);
+            response.ContentCount = await GetBookContentCount(book.BookCode);
             response.BookName = book.BookTitle;
             response.LeftPageNo = bookContents.Count > 0
                 ? bookContents
@@ -64,8 +65,8 @@ public class BookContentService
     {
         // Cause of index start 0 
         int from = (pageNo is not 0 && pageNo % 2 == 0)
-            ? pageNo - 1
-            : pageNo;
+            ? pageNo - 2
+            : pageNo - 1;
         int to = from + 1;
         var bookContentData = await _supabase
             .GetListWithLimitAsync<BookContentDataModel>(x =>

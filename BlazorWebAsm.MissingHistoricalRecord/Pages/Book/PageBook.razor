@@ -2,7 +2,7 @@
 @inject BookContentService BookContentService; 
 @inject BookmarkService BookmarkService;
 
-@if (Response is not null && 
+@if (Response is not null &&
      Response.ContentCount > 0 &&
      Response?.BookName is not null)
 {
@@ -34,7 +34,7 @@
 
                     <MudTooltip Text="Go To Beginning" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowLeft"
-                                       Disabled="(PageNo == 0)"
+                                       Disabled="(PageNo - 1 == 0)"
                                        OnClick="() => ClickOnPage(1)"
                                        Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
                                        Class="me-2"/>
@@ -42,7 +42,7 @@
 
                     <MudTooltip Text="Go To End" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowRight"
-                                       Disabled="(PageNo >= Response.ContentCount-1)"
+                                       Disabled="(PageNo >= Response.ContentCount - 1)"
                                        OnClick="() => ClickOnPage(Response.ContentCount)"
                                        Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
                                        Class="me-2"/>
@@ -111,9 +111,10 @@
 
     [Parameter]
     public string? BookId { get; set; }
+
     [Parameter]
     public string? BookCode { get; set; }
-    
+
     private BookContentResponseModel? Response { get; set; }
     private bool IsBookMark { get; set; }
     private int PageNo { get; set; }
@@ -122,16 +123,15 @@
     protected override async Task OnInitializedAsync()
     {
     // BookListResponse = await _bookService.GetBookList();
-        Response = await BookContentService.GetBookPageContents(BookId,BookCode);
+        Response = await BookContentService.GetBookPageContents(BookId);
         IsBookMark = Response.IsBookMark;
         PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
-
     }
 
     private async Task ClickOnPage(int pageNo)
     {
-        Response = await BookContentService.GetBookPageContents(BookId,BookCode, pageNo);
+        Response = await BookContentService.GetBookPageContents(BookId, pageNo);
         IsBookMark = Response.IsBookMark;
         PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
