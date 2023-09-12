@@ -8,4 +8,5 @@ public class BookContentResponseModel
     public string BookName { get; set; }
     public bool IsBookMark { get; set; }
     public int ContentCount { get; set; }
+    public int LeftPageNo { get; set; }
 }

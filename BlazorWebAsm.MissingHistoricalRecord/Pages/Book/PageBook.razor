@@ -1,16 +1,97 @@
-﻿@page "/book/{BookCode}"
-@inject BookContentService _bookContentService; 
+﻿@page "/read-book/{BookId}/{BookCode}"
+@inject BookContentService BookContentService; 
+@inject BookmarkService BookmarkService;
 
-@if (_response is not null)
+@if (Response is not null && 
+     Response.ContentCount > 0 &&
+     Response?.BookName is not null)
+{
+    <MudGrid>
+        <MudItem xs="12">
+            <MudPaper Elevation="10" Style="background: oldlace;">
+                <MudToolBar>
+                    <span class="me-2">@Response.BookName</span>
+                    @* <span>Total Pages: ( @TotalBookPage )</span> *@
+                    <MudSpacer/>
+
+                    <MudPaper style="width: 85px; margin:0 auto; "
+                              Elevation="0">
+                        <MudNumericField
+                            Style="height: 30px; margin: 0;"
+                            Class="me-2"
+                            HideSpinButtons="true"
+                            @bind-Value="SearchPageNo"
+                            Variant="Variant.Outlined"
+                            Min="1"
+                            Max="Response.ContentCount"
+                            Adornment="Adornment.End"
+                            AdornmentIcon="@Icons.Material.Filled.Search"
+                            TextChanged="(e) => { SearchPageNo = Convert.ToInt32(e); }"
+                            AdornmentColor="Color.Primary"
+                            OnAdornmentClick="() => GoToPage()"
+                            IconSize="Size.Small"/>
+                    </MudPaper>
+
+                    <MudTooltip Text="Go To Beginning" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                        <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowLeft"
+                                       Disabled="(PageNo == 0)"
+                                       OnClick="() => ClickOnPage(1)"
+                                       Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
+                                       Class="me-2"/>
+                    </MudTooltip>
+
+                    <MudTooltip Text="Go To End" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                        <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowRight"
+                                       Disabled="(PageNo >= Response.ContentCount-1)"
+                                       OnClick="() => ClickOnPage(Response.ContentCount)"
+                                       Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
+                                       Class="me-2"/>
+                    </MudTooltip>
+
+                    <MudTooltip Text="@(IsBookMark ? "Remove from Bookmark" : "Add to Bookmark")"
+                                Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                        <MudToggleIconButton Toggled="IsBookMark"
+                                             Icon="@Icons.Material.Filled.BookmarkBorder"
+                                             Color="@Color.Primary" Title="Off"
+                                             ToggledIcon="@Icons.Material.Filled.Bookmark"
+                                             ToggledColor="@Color.Primary"
+                                             ToggledChanged="OnChangeBookMark"
+                                             ToggledTitle="On"
+                                             Class="me-2"/>
+                    </MudTooltip>
+
+                    <MudTooltip Text="Previous Page" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                        <MudIconButton Icon="@Icons.Material.Filled.ArrowLeft"
+                                       Disabled="(PageNo - 1 == 0)"
+                                       OnClick="() => ClickOnPage(PageNo - 1)"
+                                       Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
+                                       Class="me-2"/>
+                    </MudTooltip>
+
+                    <MudTooltip Text="Next Page" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                        <MudIconButton Icon="@Icons.Material.Filled.ArrowRight"
+                                       Disabled="(PageNo >= Response.ContentCount - 1)"
+                                       OnClick="() => ClickOnPage(PageNo + 2)"
+                                       Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"/>
+                    </MudTooltip>
+
+                </MudToolBar>
+            </MudPaper>
+        </MudItem>
+
+    </MudGrid>
+}
+
+@if (Response is not null)
 {
     <MudGrid>
         @{
-            var item = _response.BookContents.Max(x => x.BookContentText);
+            var item = Response.BookContents.Max(x => x.BookContentText);
         }
-        @foreach (var t in _response.BookContents)
+        @foreach (var t in Response.BookContents)
         {
             string content = t.BookContentText;
-            if (content.Length < item.Length)
+            if (content.Length < item?.Length)
             {
                 content = content + "".PadLeft(item.Length - content.Length, ' ');
             }
@@ -29,14 +110,56 @@
 @code {
 
     [Parameter]
-    public string BookCode { get; set; }
-
-    private BookContentResponseModel _response { get; set; }
+    public string? BookId { get; set; }
+    [Parameter]
+    public string? BookCode { get; set; }
+    
+    private BookContentResponseModel? Response { get; set; }
+    private bool IsBookMark { get; set; }
+    private int PageNo { get; set; }
+    private int SearchPageNo { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
     // BookListResponse = await _bookService.GetBookList();
-        _response = await _bookContentService.GetBookPageContents(BookCode);
+        Response = await BookContentService.GetBookPageContents(BookId,BookCode);
+        IsBookMark = Response.IsBookMark;
+        PageNo = Response.LeftPageNo;
+        SearchPageNo = PageNo;
+
+    }
+
+    private async Task ClickOnPage(int pageNo)
+    {
+        Response = await BookContentService.GetBookPageContents(BookId,BookCode, pageNo);
+        IsBookMark = Response.IsBookMark;
+        PageNo = Response.LeftPageNo;
+        SearchPageNo = PageNo;
+    }
+
+    private async Task GoToPage()
+    {
+        await ClickOnPage(SearchPageNo);
+    }
+
+    private async Task OnChangeBookMark()
+    {
+        var bookmark = new BookmarkDataModel
+        {
+            BookCode = BookCode,
+            PageNo = PageNo,
+            CreatedDate = DateTime.Now,
+        };
+
+        if (IsBookMark)
+        {
+            await BookmarkService.RemoveBookmark(bookmark);
+        }
+        else
+        {
+            await BookmarkService.SaveBookmark(bookmark);
+        }
+        IsBookMark = !IsBookMark;
     }
 
 }

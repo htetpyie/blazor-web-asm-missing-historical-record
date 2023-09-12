@@ -1,5 +1,4 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule;
-using BlazorWebAsm.MissingHistoricalRecord.Shared.Enums;
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features.Book
 {

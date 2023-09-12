@@ -12,11 +12,11 @@ public class BookmarkService
         _supabase = supabase;
     }
 
-    public async Task<bool> SaveBookmark(BookmarkViewModel model)
+    public async Task<bool> SaveBookmark(BookmarkDataModel model)
     {
         try
         {
-            var data = await _supabase.InsertAsync(model.Change());
+            var data = await _supabase.InsertAsync(model);
             return data != null;
         }
         catch (Exception e)
@@ -26,14 +26,15 @@ public class BookmarkService
         }
     }
 
-    public async Task<bool> RemoveBookmark(string bookmarkId)
+    public async Task<bool> RemoveBookmark(BookmarkDataModel data)
     {
         try
         {
-            Guid id = new Guid(bookmarkId);
             await _supabase
                 .RemoveAsync<BookmarkDataModel>(
-                    x => x.BookMarkId == id);
+                    x => 
+                        x.BookCode == data.BookCode &&
+                        x.PageNo == data.PageNo);
             return true;
         }
         catch (Exception e)

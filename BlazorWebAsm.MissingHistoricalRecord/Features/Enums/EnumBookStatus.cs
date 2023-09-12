@@ -1,4 +1,4 @@
-﻿namespace BlazorWebAsm.MissingHistoricalRecord.Shared.Enums
+﻿namespace BlazorWebAsm.MissingHistoricalRecord.Features.Enums
 {
     public enum EnumBookStatus
     {

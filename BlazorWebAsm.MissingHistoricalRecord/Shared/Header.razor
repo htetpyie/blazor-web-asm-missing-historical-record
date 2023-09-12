@@ -1,13 +1,13 @@
 ﻿<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="1">
-    <MudSpacer />
+    <MudSpacer/>
     <MudTextField Style="width: 250px;height: 40px;"
-        @bind-Value="searchValue" 
-                   Label="Search"
-                   Variant="Variant.Text" 
-                   Adornment="Adornment.End"
-                   AdornmentIcon="@Icons.Material.Filled.Search"
-                   AdornmentColor="Color.Secondary" />    
-    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" />
+                  @bind-Value="searchValue"
+                  Label="Search"
+                  Variant="Variant.Outlined"
+                  Adornment="Adornment.End"
+                  AdornmentIcon="@Icons.Material.Filled.Search"
+                  AdornmentColor="Color.Secondary"/>
+    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
 </MudAppBar>
 
 @code

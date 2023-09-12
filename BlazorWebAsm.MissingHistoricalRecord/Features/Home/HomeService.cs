@@ -1,6 +1,6 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
 using BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule;
-using BlazorWebAsm.MissingHistoricalRecord.Shared.Enums;
+using BlazorWebAsm.MissingHistoricalRecord.Features.Enums;
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features.Home;
 

@@ -54,7 +54,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
 
             return result.Model;
         }
-        
+
         public async Task<T?> GetAsync<T>(
             Expression<Func<T, bool>> wherePredicate)
             where T : BaseModel, new()
@@ -104,12 +104,34 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
         }
 
 
+        //Method for limit
+        public async Task<List<T>> GetListWithLimitAsync<T>(
+            Expression<Func<T, bool>> wherePredicate,
+            int from, int to)
+            where T : BaseModel, new()
+        {
+            try
+            {
+                var result = await SupabaseConnection
+                    .From<T>()
+                    .Where(wherePredicate)
+                    .Range(from, to)
+                    .Get();
+                return result.Models;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public async Task<List<T>> GetListByPaginationAsync<T>(
             Expression<Func<T, bool>> wherePredicate,
             int pageNo = 1, int pageSize = 10)
             where T : BaseModel, new()
         {
-            int from = (pageNo -1) * pageSize;
+            int from = (pageNo - 1) * pageSize;
             int to = from + pageSize - 1;
             try
             {
@@ -117,9 +139,8 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
                     .From<T>()
                     .Where(wherePredicate)
                     .Range(from, to)
-                    .Get();            
+                    .Get();
                 return result.Models;
-
             }
             catch (Exception e)
             {

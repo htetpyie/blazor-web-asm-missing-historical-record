@@ -3,7 +3,7 @@
     src: url('../fonts/Century Burma.ttf');
 }
 
-html, body {
+html, body *{
     font-family: CenturyBurma, Arial, sans-serif;
 }
 
