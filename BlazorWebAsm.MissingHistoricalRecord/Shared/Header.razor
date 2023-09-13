@@ -12,7 +12,7 @@
                      AdornmentColor="Color.Secondary"
                      Margin="Margin.Dense"
                      Clearable="true"
-                     OnClearButtonClick="() => { searchBook = new();}"
+                     OnClearButtonClick="() => { searchBook = new(); }"
                      OnAdornmentClick="GoToBook"/>
 
     <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
@@ -48,9 +48,8 @@
 
     private void GoToBook()
     {
-        Console.WriteLine(searchBook.BookCode);
-        _nav.NavigateTo($"/read-book/{searchBook.BookId}/{searchBook.BookCode}"); 
+        _nav.NavigateTo($"/read-book/{searchBook.BookId}/{searchBook.BookCode}");
     }
-    
+
     Func<SearchBookViewModel, string> bookTitle = b => b?.BookTitle;
 }

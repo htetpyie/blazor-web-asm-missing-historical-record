@@ -112,6 +112,8 @@
     [Parameter]
     public string? BookId { get; set; }
 
+    private string? previousBookId { get; set; }
+
     [Parameter]
     public string? BookCode { get; set; }
 
@@ -120,13 +122,26 @@
     private int PageNo { get; set; }
     private int SearchPageNo { get; set; }
 
-    protected override async Task OnInitializedAsync()
+    // protected override async Task OnInitializedAsync()
+    // {
+    // // BookListResponse = await _bookService.GetBookList();
+    //     Response = await BookContentService.GetBookPageContents(BookId);
+    //     IsBookMark = Response.IsBookMark;
+    //     PageNo = Response.LeftPageNo;
+    //     SearchPageNo = PageNo;
+    // }
+
+    protected override async Task OnParametersSetAsync()
     {
-    // BookListResponse = await _bookService.GetBookList();
-        Response = await BookContentService.GetBookPageContents(BookId);
-        IsBookMark = Response.IsBookMark;
-        PageNo = Response.LeftPageNo;
-        SearchPageNo = PageNo;
+        if (!BookId.IsNullOrWhiteSpace() && BookId != previousBookId)
+        {
+            previousBookId = BookId;
+
+            Response = await BookContentService.GetBookPageContents(BookId);
+            IsBookMark = Response.IsBookMark;
+            PageNo = Response.LeftPageNo;
+            SearchPageNo = PageNo;
+        }
     }
 
     private async Task ClickOnPage(int pageNo)

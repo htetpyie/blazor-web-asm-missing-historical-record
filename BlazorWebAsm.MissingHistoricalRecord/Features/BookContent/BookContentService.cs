@@ -31,7 +31,9 @@ public class BookContentService
             if (book is null) return null;
 
             var contentData = await GetBookContentData(book.BookCode, pageNo);
-            var bookContents = await GetBookContents(book.BookCode, pageNo);
+            var bookContents = contentData
+                .Select(x => x.Change())
+                .ToList();
             response.IsBookMark = await IsBookMark(contentData);
             response.BookContents = bookContents;
             response.ContentCount = await GetBookContentCount(book.BookCode);
@@ -49,25 +51,20 @@ public class BookContentService
 
         return response;
     }
-
-    private async Task<List<BookContentViewModel>> GetBookContents(
-        string bookCode, int pageNo)
-    {
-        var bookContentData = await GetBookContentData(bookCode, pageNo);
-        var bookContents = bookContentData
-            .Select(x => x.Change())
-            .ToList();
-        return bookContents;
-    }
-
+ 
     private async Task<List<BookContentDataModel>> GetBookContentData(
         string bookCode, int pageNo)
     {
         // Cause of index start 0 
-        int from = (pageNo is not 0 && pageNo % 2 == 0)
-            ? pageNo - 2
-            : pageNo - 1;
+        int from = 0;
+        if (pageNo > 0)
+        {
+            from = (pageNo % 2 == 0)
+                ? pageNo - 2
+                : pageNo - 1;
+        }
         int to = from + 1;
+        
         var bookContentData = await _supabase
             .GetListWithLimitAsync<BookContentDataModel>(x =>
                     x.BookCode == bookCode &&
