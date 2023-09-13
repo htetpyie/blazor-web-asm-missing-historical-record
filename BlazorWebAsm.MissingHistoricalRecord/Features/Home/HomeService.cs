@@ -12,7 +12,7 @@ public class HomeService
     {
         _supabase = supabase;
     }
-    
+
     public async Task<BookListResponseModel> GetLatestBookList(int pageSize = 4)
     {
         BookListResponseModel bookList = new();
@@ -28,8 +28,25 @@ public class HomeService
         return bookList;
     }
 
+    public async Task<IEnumerable<SearchBookViewModel>> GetAllBook()
+    {
+        string status = EnumBookStatus.Complete.ToString();
+        var dataList = await _supabase.GetAllAsync<BookDataModel>(
+            x => new object[] { x.BookId, x.BookCode, x.BookTitle },
+            x => x.IsDelete == false &&
+                 x.Status == status);
+        var resultList = dataList
+            .Select(x =>
+                new SearchBookViewModel()
+                {
+                    BookId = x.BookId,
+                    BookCode = x.BookCode,
+                    BookTitle = x.BookTitle
+                });
+        return resultList;
+    }
+
     public async Task GetBookmarkList()
     {
-            
     }
 }

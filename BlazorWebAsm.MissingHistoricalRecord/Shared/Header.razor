@@ -1,16 +1,56 @@
 ﻿<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="1">
     <MudSpacer/>
-    <MudTextField Style="width: 250px;height: 40px;"
-                  @bind-Value="searchValue"
-                  Label="Search"
-                  Variant="Variant.Outlined"
-                  Adornment="Adornment.End"
-                  AdornmentIcon="@Icons.Material.Filled.Search"
-                  AdornmentColor="Color.Secondary"/>
+    <MudAutocomplete style="width: 300px;"
+                     T="SearchBookViewModel"
+                     @bind-Value="searchBook"
+                     ToStringFunc="@bookTitle"
+                     Label="Search"
+                     SearchFunc="@SearchBook"
+                     Variant="Variant.Outlined"
+                     Adornment="Adornment.End"
+                     AdornmentIcon="@Icons.Material.Filled.Search"
+                     AdornmentColor="Color.Secondary"
+                     Margin="Margin.Dense"
+                     Clearable="true"
+                     OnClearButtonClick="() => { searchBook = new();}"
+                     OnAdornmentClick="GoToBook"/>
+
     <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
 </MudAppBar>
 
 @code
 {
-    string searchValue { get; set; }
+    private SearchBookViewModel searchBook { get; set; }
+    private IEnumerable<SearchBookViewModel>? BookList { get; set; }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            BookList = await HomeService.GetAllBook();
+        }
+    }
+
+    private async Task<IEnumerable<SearchBookViewModel>?> SearchBook(string value)
+    {
+        if (value.IsNullOrEmpty())
+        {
+            return BookList;
+        }
+
+        return BookList.Where(x => x
+            .BookTitle
+            .Contains(
+                value,
+                StringComparison.InvariantCultureIgnoreCase)
+            );
+    }
+
+    private void GoToBook()
+    {
+        Console.WriteLine(searchBook.BookCode);
+        _nav.NavigateTo($"/read-book/{searchBook.BookId}/{searchBook.BookCode}"); 
+    }
+    
+    Func<SearchBookViewModel, string> bookTitle = b => b?.BookTitle;
 }

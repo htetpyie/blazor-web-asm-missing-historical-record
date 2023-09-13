@@ -11,3 +11,9 @@ public class BookViewModel
     public string? BookAuthor { get; set; }
     public string? Status { get; set; }
 }
+
+public class SearchBookViewModel{
+    public Guid BookId { get; set; }
+    public string BookCode { get; set; }
+    public string? BookTitle { get; set; }
+}

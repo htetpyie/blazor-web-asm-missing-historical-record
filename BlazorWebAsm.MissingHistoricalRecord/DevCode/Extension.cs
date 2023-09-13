@@ -2,6 +2,15 @@
 
 public static class Extension
 {
+    public static bool IsNullOrWhiteSpace(this string str)
+    {
+        return string.IsNullOrWhiteSpace(str);
+    }
+    
+    public static bool IsNullOrEmpty(this string str)
+    {
+        return string.IsNullOrEmpty(str);
+    }
     public static string ToDigitMyanmar(this int num)
     {
         string result = num.ToString();
