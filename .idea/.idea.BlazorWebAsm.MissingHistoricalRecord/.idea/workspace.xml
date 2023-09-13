@@ -8,9 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="Book searching done.">
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="searching bug fixed">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,12 +18,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61058659d8224072afab65fd498e6082fa00/3e/3f973f3a/IPostgrestTable`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79af3afbcc86b84edf3398c608aaf6c3915028fc1dfb5e9c3972895538fe3/JSRuntime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +107,7 @@
       <workItem from="1694357254781" duration="5533000" />
       <workItem from="1694525953377" duration="2977000" />
       <workItem from="1694532927815" duration="7632000" />
-      <workItem from="1694607597596" duration="11611000" />
+      <workItem from="1694607597596" duration="13997000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -157,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694619610857</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="searching bug fixed">
+      <created>1694623891428</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694623891428</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +189,8 @@
     <MESSAGE value="done to book read" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="Book searching done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Book searching done." />
+    <MESSAGE value="searching bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="searching bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -217,32 +233,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentService.cs</url>
-          <line>51</line>
-          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\BookContent\BookContentService.cs" initialLine="49" containingFunctionPresentation="Method 'GetBookPageContents'">
-            <startOffsets>
-              <option value="1709" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1725" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/BookContent/BookContentService.cs</url>
-          <line>56</line>
-          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\BookContent\BookContentService.cs" initialLine="64" containingFunctionPresentation="Method 'GetBookContentData'">
-            <startOffsets>
-              <option value="1846" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1847" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

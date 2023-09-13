@@ -1,6 +1,7 @@
 ﻿@page "/read-book/{BookId}/{BookCode}"
 @inject BookContentService BookContentService; 
 @inject BookmarkService BookmarkService;
+@inject JSRuntime JS;
 
 @if (Response is not null &&
      Response.ContentCount > 0 &&
@@ -96,7 +97,8 @@
                 content = content + "".PadLeft(item.Length - content.Length, ' ');
             }
             <MudItem xs="6">
-                <MudPaper MinHeight="700px" Style="line-height: 24px; background: oldlace;" Class="@(@"d-flex pl-5 pr-5 mud-width-full py-8")">
+                <MudButton OnClick="ClickFullScreen"></MudButton>
+                <MudPaper id="pages" MinHeight="700px" Style="line-height: 24px; background: oldlace;" Class="@(@"d-flex pl-5 pr-5 mud-width-full py-8")">
                     <div style="position: relative;">
                         <span style="position: absolute; top: -30px; right: 50%;">@t.BookContentPageNo.ToDigitMyanmar()</span>
                         @((MarkupString)content)
@@ -122,14 +124,8 @@
     private int PageNo { get; set; }
     private int SearchPageNo { get; set; }
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    // // BookListResponse = await _bookService.GetBookList();
-    //     Response = await BookContentService.GetBookPageContents(BookId);
-    //     IsBookMark = Response.IsBookMark;
-    //     PageNo = Response.LeftPageNo;
-    //     SearchPageNo = PageNo;
-    // }
+    private IJSObjectReference? jsModule;
+
 
     protected override async Task OnParametersSetAsync()
     {
@@ -142,6 +138,22 @@
             PageNo = Response.LeftPageNo;
             SearchPageNo = PageNo;
         }
+    }
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            jsModule = await JS
+                .InvokeAsync<IJSObjectReference>(
+                    "import", "./Pages/Book/PageBook.razor.js");
+        }
+    }
+
+    private async Task ClickFullScreen()
+    {
+        await jsModule.InvokeVoidAsync("openFullscreen");
     }
 
     private async Task ClickOnPage(int pageNo)
