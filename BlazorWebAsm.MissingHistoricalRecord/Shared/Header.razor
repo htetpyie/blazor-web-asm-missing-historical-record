@@ -1,39 +1,38 @@
 ﻿<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
 
-<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="1">
-    <MudSpacer/>
-    <MudAutocomplete style="width: 300px;"
-                     T="SearchBookViewModel"
-                     @bind-Value="searchBook"
-                     ToStringFunc="@bookTitle"
-                     Label="Search"
-                     SearchFunc="@SearchBook"
-                     Variant="Variant.Outlined"
-                     Adornment="Adornment.End"
-                     AdornmentIcon="@Icons.Material.Filled.Search"
-                     AdornmentColor="Color.Secondary"
-                     Margin="Margin.Dense"
-                     Clearable="true"
-                     OnClearButtonClick="() => { searchBook = new(); }"
-                     OnAdornmentClick="GoToBook"/>
-    <MudSwitch @bind-Checked="@_isDarkMode" 
-               Color="Color.Dark"
-               Class="ma-4" T="bool"
-               ThumbIcon="@(_isDarkMode 
-                              ? Icons.Material.Filled.LightMode 
-                              : Icons.Material.Filled.DarkMode )"
-               Size="Size.Large"
-               />
-  </MudAppBar>
+<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="0" Class="docs-appbar-filter">
+    <MudAppBar Color="Color.Transparent" Fixed="true" Elevation="0">
+        <MudSpacer/>
+        <MudAutocomplete style="width: 300px;"
+                         T="SearchBookViewModel"
+                         @bind-Value="searchBook"
+                         ToStringFunc="@bookTitle"
+                         Label="Search"
+                         SearchFunc="@SearchBook"
+                         Variant="Variant.Outlined"
+                         Adornment="Adornment.End"
+                         AdornmentIcon="@Icons.Material.Filled.Search"
+                         AdornmentColor="Color.Secondary"
+                         Margin="Margin.Dense"
+                         Clearable="true"
+                         OnClearButtonClick="() => { searchBook = new(); }"
+                         OnAdornmentClick="GoToBook"/>
+        <MudSwitch @bind-Checked="@_isDarkMode"
+                   Color="Color.Dark"
+                   Class="ma-4" T="bool"
+                   ThumbIcon="@(_isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
+                   Size="Size.Large"/>
+    </MudAppBar>
+</MudAppBar>
 
 @code
 {
     private SearchBookViewModel searchBook { get; set; }
     private IEnumerable<SearchBookViewModel>? BookList { get; set; }
-    
+
     private MudTheme _theme = new();
     public bool _isDarkMode = true;
-    
+
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)

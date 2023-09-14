@@ -2,11 +2,12 @@
 
 <MudDialogProvider />
 <MudSnackbarProvider />
-<div class="page">
-    <main>
-        <Header></Header>
-        <article class="content px-4" style="margin-top:60px;">
-            @Body
-        </article>
-    </main>
-</div>
+
+<MudLayout>
+    <Header></Header>
+    <SideMenu></SideMenu>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+    

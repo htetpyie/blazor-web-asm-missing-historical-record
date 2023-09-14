@@ -8,10 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="added full screen">
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="added dark and white mode">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/MainLayout.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61058659d8224072afab65fd498e6082fa00/3e/3f973f3a/IPostgrestTable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8b65dfdfaa1748d1a8381441c3ea6cc5354a0/0c/b6c460c9/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/74c627bd595e87f1b7f6c31cad55219a3fa31bb388e7be51981e6efa4dfc4c2/MudBaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79af3afbcc86b84edf3398c608aaf6c3915028fc1dfb5e9c3972895538fe3/JSRuntime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9156e6956d2f3e689b5ad48798128de4436c68d733cddbdce3db116c8b97/MudAppBar.razor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a2adbd7c8d5b61deb42667b07db96d305874cbe0fe5922b41a8dcad81cc99a2d/MudNavLink.razor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -109,7 +116,7 @@
       <workItem from="1694525953377" duration="2977000" />
       <workItem from="1694532927815" duration="7632000" />
       <workItem from="1694607597596" duration="14362000" />
-      <workItem from="1694699093151" duration="6382000" />
+      <workItem from="1694699093151" duration="13175000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -188,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694703102365</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added dark and white mode">
+      <created>1694706131976</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1694706131976</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +222,8 @@
     <MESSAGE value="searching bug fixed" />
     <MESSAGE value="IN Projress js file adding" />
     <MESSAGE value="added full screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="added full screen" />
+    <MESSAGE value="added dark and white mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dark and white mode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
