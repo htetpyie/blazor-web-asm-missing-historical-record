@@ -1,4 +1,6 @@
-﻿<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="1">
+﻿<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
+
+<MudAppBar Color="Color.Transparent" Fixed="true" Elevation="1">
     <MudSpacer/>
     <MudAutocomplete style="width: 300px;"
                      T="SearchBookViewModel"
@@ -14,15 +16,24 @@
                      Clearable="true"
                      OnClearButtonClick="() => { searchBook = new(); }"
                      OnAdornmentClick="GoToBook"/>
-
-    <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"/>
-</MudAppBar>
+    <MudSwitch @bind-Checked="@_isDarkMode" 
+               Color="Color.Dark"
+               Class="ma-4" T="bool"
+               ThumbIcon="@(_isDarkMode 
+                              ? Icons.Material.Filled.LightMode 
+                              : Icons.Material.Filled.DarkMode )"
+               Size="Size.Large"
+               />
+  </MudAppBar>
 
 @code
 {
     private SearchBookViewModel searchBook { get; set; }
     private IEnumerable<SearchBookViewModel>? BookList { get; set; }
-
+    
+    private MudTheme _theme = new();
+    public bool _isDarkMode = true;
+    
     protected async override Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
