@@ -8,10 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="searching bug fixed">
-      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor.js" afterDir="false" />
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/js/book.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/_Imports.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +33,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/61058659d8224072afab65fd498e6082fa00/3e/3f973f3a/IPostgrestTable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8b65dfdfaa1748d1a8381441c3ea6cc5354a0/0c/b6c460c9/ComponentBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79af3afbcc86b84edf3398c608aaf6c3915028fc1dfb5e9c3972895538fe3/JSRuntime.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -107,7 +110,8 @@
       <workItem from="1694357254781" duration="5533000" />
       <workItem from="1694525953377" duration="2977000" />
       <workItem from="1694532927815" duration="7632000" />
-      <workItem from="1694607597596" duration="13997000" />
+      <workItem from="1694607597596" duration="14362000" />
+      <workItem from="1694699093151" duration="3766000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -172,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694623891428</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="IN Projress js file adding">
+      <created>1694626469598</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694626469598</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +201,8 @@
     <MESSAGE value="bug fixed" />
     <MESSAGE value="Book searching done." />
     <MESSAGE value="searching bug fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="searching bug fixed" />
+    <MESSAGE value="IN Projress js file adding" />
+    <option name="LAST_COMMIT_MESSAGE" value="IN Projress js file adding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

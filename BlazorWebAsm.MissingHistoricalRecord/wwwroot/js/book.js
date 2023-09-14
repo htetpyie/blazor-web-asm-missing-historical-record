@@ -1,8 +1,9 @@
 ﻿/* Get the documentElement (<html>) to display the page in fullscreen */
-var elem = document.querySelector('#pages');
 
 /* View in fullscreen */
-function openFullscreen() {
+export function openFullscreen() {
+var elem = document.getElementById('book-pages');
+    console.log("Okay")
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { /* Firefox */
