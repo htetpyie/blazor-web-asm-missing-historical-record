@@ -1,24 +1,31 @@
-﻿<MudDrawer @bind-Open="@open" Width="100px" Fixed="true" 
+﻿<MudDrawer @bind-Open="@open" Width="100px" Fixed="true"
            ClipMode="DrawerClipMode.Docked"
-           Anchor="Anchor.Start" 
+           Anchor="Anchor.Start"
            Elevation="0"
            Variant="@DrawerVariant.Mini"
            Class="">
-            <MudDrawerHeader>
-                <MudText Typo="Typo.h6"></MudText>
-            </MudDrawerHeader>
-            <MudNavMenu Color="Color.Primary" Style="margin: auto;">
-                <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Home"></MudNavLink>
-                <MudNavLink Href="/book-list" Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.MenuBook"></MudNavLink>
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Outlined.Bookmark"></MudNavLink>
-            </MudNavMenu>
-        </MudDrawer>
+    <MudNavMenu Style="margin: 40px auto;">
+        <MudNavLink Href="/" 
+                    Icon="@Icons.Material.Outlined.Home"
+                    Style="margin-top: 15px;">
+        </MudNavLink>
+        <MudNavLink Href="/book-list"
+                    Icon="@Icons.Material.Outlined.MenuBook"
+                    Style="margin-top: 15px;">
+        </MudNavLink>
+        <MudNavLink Href="/"
+                    Icon="@Icons.Material.Outlined.Bookmark"
+                    Style="margin-top: 15px;">
+        </MudNavLink>
+    </MudNavMenu>
+</MudDrawer>
+
 @code
-{ 
+{
     bool open = true;
 
     void ToggleDrawer()
     {
         open = !open;
-    } 
+    }
 }
