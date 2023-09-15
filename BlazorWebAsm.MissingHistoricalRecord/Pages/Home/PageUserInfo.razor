@@ -1,10 +1,12 @@
-﻿<MudPaper Class="pa-15 rounded-lg" Outlined="true" Square="true">
+﻿<MudPaper Class="pa-6 rounded-lg" Square="true" Height="550px;">
     <div class="flex">
         <div>
-            <MudImage Src="./img/books.png" Style="width:30px; height: 30px;" Alt="User Profile" Elevation="25" Class="rounded-lg" />
+            <MudImage Src="./img/books.png"
+                      Style="width:40px; height: 40px; border-radius: 50%;" 
+                      Alt="User Profile" Elevation="0"/>
         </div>
-        <div class="ml-auto">
-            <div>Htet Pyie</div>
+        <div class="mx-auto my-auto">
+            <div>Anonymous</div>
         </div>
     </div>
     <div class="my-5">
@@ -12,7 +14,7 @@
             Your Reading Progress
         </div>
         <div style="font-size: 0.8rem;">800 pages left from 2 books</div>
-        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75" />
+        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75"/>
     </div>
 
     <div class="my-5">
@@ -20,11 +22,11 @@
             <MudNavLink Href="/users">Users</MudNavLink>
             <MudNavLink Href="/security">Security</MudNavLink>
         </MudNavGroup>
-        <MudNavGroup Title="Bookmarks" Icon="@Icons.Material.Filled.Bookmark" >
+        <MudNavGroup Title="Bookmarks" Icon="@Icons.Material.Filled.Bookmark">
             <MudNavLink Href="/users">Users</MudNavLink>
             <MudNavLink Href="/security">Security</MudNavLink>
         </MudNavGroup>
-        <MudNavGroup Title="Wish" Icon="@Icons.Material.Filled.Favorite" >
+        <MudNavGroup Title="Wish" Icon="@Icons.Material.Filled.Favorite">
             <MudNavLink Href="/users">Users</MudNavLink>
             <MudNavLink Href="/security">Security</MudNavLink>
         </MudNavGroup>

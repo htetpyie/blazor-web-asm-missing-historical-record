@@ -15,15 +15,18 @@ public class HomeService
 
     public async Task<BookListResponseModel> GetLatestBookList(int pageSize = 4)
     {
+        string bookStatus = EnumBookStatus.Complete.ToString();
         BookListResponseModel bookList = new();
         var dataList = await _supabase
             .GetLatestListAsync<BookDataModel>(
                 (x => x.IsDelete == false &&
-                      x.Status == EnumBookStatus.Complete.ToString()),
+                      x.Status == bookStatus),
                 x => x.CreatedDate, //Order by created date
                 Postgrest.Constants.Ordering.Descending,
                 pageSize);
-        bookList.BookList = dataList.Select(x => x.Change()).ToList();
+
+        bookList.LatestBookList = dataList.Select(x => x.Change()).ToList();
+        bookList.TotalBookCount = await GetBookTotalCount();
 
         return bookList;
     }
@@ -48,5 +51,11 @@ public class HomeService
 
     public async Task GetBookmarkList()
     {
+    }
+
+    private async Task<int> GetBookTotalCount()
+    {
+        var list = await GetAllBook();
+        return list.Count();
     }
 }

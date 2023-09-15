@@ -2,7 +2,7 @@
 {
     public class BookListResponseModel
     {
-        public List<BookViewModel> BookList { get; set; }
-        public int BookCount { get; set; }
+        public List<BookViewModel> LatestBookList { get; set; }
+        public int TotalBookCount { get; set; }
     }
 }

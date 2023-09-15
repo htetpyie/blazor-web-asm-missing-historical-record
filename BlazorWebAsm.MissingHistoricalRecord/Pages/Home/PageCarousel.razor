@@ -1,42 +1,29 @@
-﻿<MudCarousel Class="mud-width-full rounded-lg" Style="height:180px;" AutoCycle="false" TData="object">
-    <BulletTemplate Context="selected">
-        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
-            <span class="mud-icon-button-label">
-                <MudIcon Icon="@(selected ? Icons.Material.Filled.CheckCircle : Icons.Material.Filled.Circle)" Color="@Color.Inherit" />
-            </span>
+﻿<MudCarousel Class="mud-width-full" Style="height:180px;"
+             ShowArrows="@arrows" 
+             ShowBullets="@bullets" 
+             EnableSwipeGesture="@enableSwipeGesture" 
+             AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition" Color="@Color.Transparent">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
         </div>
-    </BulletTemplate>
-    <PreviousButtonTemplate>
-        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
-            <span class="mud-icon-button-label">
-                <MudIcon Class="mud-ripple mud-ripple-icon mud-icon-button-size-medium" Icon="@Icons.Material.Filled.SkipPrevious" Color="@Color.Inherit" />
-            </span>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Transparent">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
         </div>
-    </PreviousButtonTemplate>
-    <NextButtonTemplate>
-        <div Class="mud-button-root mud-icon-button mud-icon-button-color-inherit mud-ripple mud-ripple-icon">
-            <span class="mud-icon-button-label">
-                <MudIcon Class="mud-ripple mud-ripple-icon mud-icon-button-size-medium" Icon="@Icons.Material.Filled.SkipNext" Color="@Color.Inherit" />
-            </span>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition">
+        <div class="d-flex" style="height:100%">
+            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
         </div>
-    </NextButtonTemplate>
-    <ChildContent>
-        <MudCarouselItem Color="@Color.Primary">
-            <div class="d-flex" style="height:100%">
-                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-            </div>
-        </MudCarouselItem>
-        <MudCarouselItem Color="@Color.Secondary">
-            <div class="d-flex" style="height:100%">
-                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
-            </div>
-        </MudCarouselItem>
-        <MudCarouselItem>
-            <div class="d-flex" style="height:100%">
-                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
-            </div>
-        </MudCarouselItem>
-    </ChildContent>
+    </MudCarouselItem>
 </MudCarousel>
 
-@code { }
+@code{ 
+    private bool arrows = false;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+}
