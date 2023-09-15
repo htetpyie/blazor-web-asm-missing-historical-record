@@ -17,17 +17,23 @@
                          Clearable="true"
                          OnClearButtonClick="() => { searchBook = new(); }"
                          OnAdornmentClick="GoToBook"/>
-        <MudSwitch @bind-Checked="@_isDarkMode"
-                   Color="Color.Dark"
-                   Class="ma-4" T="bool"
-                   ThumbIcon="@(_isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.DarkMode)"
-                   Size="Size.Large"/>
+
+        <MudTooltip Text="@(_isDarkMode ? "Switch to white theme" : "Switch to dark theme")"
+                    Placement="Placement.Bottom" Arrow="true">
+            <MudToggleIconButton Toggled="_isDarkMode"
+                                 Icon="@Icons.Material.Filled.DarkMode"
+                                 Color="@Color.Primary" Title="Off"
+                                 ToggledIcon="@Icons.Material.Filled.LightMode"
+                                 ToggledChanged="OnChangeMode"
+                                 ToggledTitle="On"
+                                 Class="me-4"/>
+        </MudTooltip>
     </MudAppBar>
 </MudAppBar>
 
 @code
 {
-    private SearchBookViewModel searchBook { get; set; }
+    private SearchBookViewModel? searchBook { get; set; }
     private IEnumerable<SearchBookViewModel>? BookList { get; set; }
 
     private MudTheme _theme = new();
@@ -58,7 +64,22 @@
 
     private void GoToBook()
     {
-        _nav.NavigateTo($"/read-book/{searchBook.BookId}/{searchBook.BookCode}");
+        if (!IsSearchEmpty())
+            _nav.NavigateTo($"/read-book/{searchBook.BookId}/{searchBook.BookCode}");
+    }
+
+    private bool IsSearchEmpty()
+    {
+        string defaultGuid = "00000000-0000-0000-0000-000000000000";
+
+        return (searchBook is null ||
+                searchBook.BookCode.IsNullOrWhiteSpace() ||
+                searchBook.BookId == new Guid(defaultGuid));
+    }
+
+    private void OnChangeMode()
+    {
+        _isDarkMode = !_isDarkMode;
     }
 
     Func<SearchBookViewModel, string> bookTitle = b => b?.BookTitle;
