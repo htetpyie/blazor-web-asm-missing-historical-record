@@ -1,23 +1,23 @@
 ﻿<MudPaper Class="pa-6 rounded-lg" Square="true" Height="550px;">
     <div class="flex">
         <div>
-            <MudImage Src="./img/books.png"
+            <MudImage Src="./img/historybooks.jpg"
                       Style="width:40px; height: 40px; border-radius: 50%;" 
                       Alt="User Profile" Elevation="0"/>
         </div>
         <div class="mx-auto my-auto">
-            <div>Anonymous</div>
+            <div>Anonymous User</div>
         </div>
     </div>
-    <div class="my-5">
-        <div style="font-size: 1rem;" class="text-lg">
+    <div class="my-10">
+        <div style="font-size: .95rem;" class="mb-3">
             Your Reading Progress
         </div>
-        <div style="font-size: 0.8rem;">800 pages left from 2 books</div>
         <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75"/>
+         <div style="font-size: 0.75rem; margin-top: 3px;">800 pages left from 2 books</div>
     </div>
 
-    <div class="my-5">
+    <div class="my-10" style="height: 330px; overflow-y: auto;">
         <MudNavGroup Title="Reading List" Icon="@Icons.Material.Filled.MenuBook" BadgeData="11">
             <MudNavLink Href="/users">Users</MudNavLink>
             <MudNavLink Href="/security">Security</MudNavLink>

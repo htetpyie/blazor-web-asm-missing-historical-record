@@ -9,30 +9,37 @@
 {
     <MudGrid>
         <MudItem xs="12">
-            <MudPaper Elevation="10" Style="background: oldlace;">
+            <MudPaper Elevation="10">
                 <MudToolBar>
-                    <span class="me-2">@Response.BookName</span>
+                    @{ string totalPage = Response.ContentCount > 1
+                           ? $"{Response.ContentCount} pages" 
+                           : $"{Response.ContentCount} page"; }
+                    <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
+                        <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
+                    </MudTooltip>
                     @* <span>Total Pages: ( @TotalBookPage )</span> *@
                     <MudSpacer/>
 
-                    <MudPaper style="width: 85px; margin:0 auto !important; "
-                              Elevation="0">
-                        <MudNumericField
-                            Style="height: 30px; margin: 0 !important;"
-                            HideSpinButtons="true"
-                            @bind-Value="SearchPageNo"
-                            Variant="Variant.Outlined"
-                            Min="1"
-                            Max="Response.ContentCount"
-                            Adornment="Adornment.End"
-                            AdornmentIcon="@Icons.Material.Filled.Search"
-                            TextChanged="(e) => { SearchPageNo = Convert.ToInt32(e); }"
-                            AdornmentColor="Color.Primary"
-                            OnAdornmentClick="() => GoToPage()"
-                            IconSize="Size.Small"/>
-                    </MudPaper>
+                    <MudTooltip Text="Go To Page" Placement="Placement.Bottom" Arrow="true">
+                        <MudPaper style="width: 85px; margin:0 auto !important; "
+                                  Elevation="0">
+                            <MudNumericField
+                                Style="height: 30px; margin: 0 !important;"
+                                HideSpinButtons="true"
+                                @bind-Value="SearchPageNo"
+                                Variant="Variant.Outlined"
+                                Min="1"
+                                Max="Response.ContentCount"
+                                Adornment="Adornment.End"
+                                AdornmentIcon="@Icons.Material.Filled.Search"
+                                TextChanged="(e) => { SearchPageNo = Convert.ToInt32(e); }"
+                                AdornmentColor="Color.Primary"
+                                OnAdornmentClick="() => GoToPage()"
+                                IconSize="Size.Small"/>
+                        </MudPaper>
+                    </MudTooltip>
 
-                    <MudTooltip Text="Go To Beginning" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                    <MudTooltip Text="Go To Beginning" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowLeft"
                                        Disabled="(PageNo - 1 == 0)"
                                        OnClick="() => ClickOnPage(1)"
@@ -40,7 +47,7 @@
                                        Class="me-2 ms-4"/>
                     </MudTooltip>
 
-                    <MudTooltip Text="Go To End" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                    <MudTooltip Text="Go To End" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.KeyboardDoubleArrowRight"
                                        Disabled="(PageNo >= Response.ContentCount - 1)"
                                        OnClick="() => ClickOnPage(Response.ContentCount)"
@@ -49,7 +56,7 @@
                     </MudTooltip>
 
                     <MudTooltip Text="@(IsBookMark ? "Remove from Bookmark" : "Add to Bookmark")"
-                                Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                                Placement="Placement.Bottom" Arrow="true">
                         <MudToggleIconButton Toggled="IsBookMark"
                                              Icon="@Icons.Material.Filled.BookmarkBorder"
                                              Color="@Color.Primary" Title="Off"
@@ -60,7 +67,7 @@
                                              Class="me-2"/>
                     </MudTooltip>
 
-                    <MudTooltip Text="Previous Page" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                    <MudTooltip Text="Previous Page" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.ArrowLeft"
                                        Disabled="(PageNo - 1 == 0)"
                                        OnClick="() => ClickOnPage(PageNo - 1)"
@@ -68,15 +75,15 @@
                                        Class="me-2"/>
                     </MudTooltip>
 
-                    <MudTooltip Text="Next Page" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+                    <MudTooltip Text="Next Page" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.ArrowRight"
                                        Disabled="(PageNo >= Response.ContentCount - 1)"
                                        OnClick="() => ClickOnPage(PageNo + 2)"
                                        Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"
                                        Class="me-4"/>
                     </MudTooltip>
-                    
-                    <MudTooltip Text="Full Screen" Color="Color.Primary" Placement="Placement.Bottom" Arrow="true">
+
+                    <MudTooltip Text="Full Screen" Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.Fullscreen"
                                        OnClick="ClickFullScreen"
                                        Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small"/>
@@ -102,9 +109,11 @@
             {
                 content = content + "".PadLeft(item.Length - content.Length, ' ');
             }
-            <MudItem xs="6">
-
-                <MudPaper MinHeight="700px" Style="line-height: 24px; background: oldlace;" Class="@(@"d-flex pl-5 pr-5 mud-width-full py-8")">
+            <MudItem xs="6" Style="padding: 12px 4px;">
+                <MudPaper
+                    MinHeight="700px"
+                    Style="line-height: 24px; font-size:1rem;"
+                    Class="@(@"d-flex pl-10 pr-10 mud-width-full py-8")">
                     <div style="position: relative;">
                         <span style="position: absolute; top: -30px; right: 50%;">@t.BookContentPageNo.ToDigitMyanmar()</span>
                         @((MarkupString)content)
