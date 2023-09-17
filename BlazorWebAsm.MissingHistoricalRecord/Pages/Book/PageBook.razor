@@ -9,7 +9,7 @@
 {
     <MudGrid>
         <MudItem xs="12">
-            <MudPaper Elevation="10">
+            <MudPaper Elevation="6">
                 <MudToolBar>
                     @{ string totalPage = Response.ContentCount > 1
                            ? $"{Response.ContentCount} pages" 
@@ -110,7 +110,7 @@
                 content = content + "".PadLeft(item.Length - content.Length, ' ');
             }
             <MudItem xs="6" Style="padding: 12px 4px;">
-                <MudPaper
+                <MudPaper Elevation="4"
                     MinHeight="700px"
                     Style="line-height: 24px; font-size:1rem;"
                     Class="@(@"d-flex pl-10 pr-10 mud-width-full py-8")">
