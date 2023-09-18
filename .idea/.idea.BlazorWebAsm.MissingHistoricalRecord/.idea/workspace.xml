@@ -10,9 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +34,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79af3afbcc86b84edf3398c608aaf6c3915028fc1dfb5e9c3972895538fe3/JSRuntime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9156e6956d2f3e689b5ad48798128de4436c68d733cddbdce3db116c8b97/MudAppBar.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a2adbd7c8d5b61deb42667b07db96d305874cbe0fe5922b41a8dcad81cc99a2d/MudNavLink.razor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Features/Book/BookListResponseModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageTabs.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Shared/Header.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/HPPM/Projects/MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -119,7 +114,7 @@
       <workItem from="1694699093151" duration="13675000" />
       <workItem from="1694786978496" duration="17845000" />
       <workItem from="1694847521408" duration="3237000" />
-      <workItem from="1694960680191" duration="7481000" />
+      <workItem from="1694960680191" duration="8981000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -240,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694967228843</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added title">
+      <created>1694969016395</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1694969016395</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +268,8 @@
     <MESSAGE value="change design a little" />
     <MESSAGE value="repair side menu" />
     <MESSAGE value="styling a little" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling a little" />
+    <MESSAGE value="added title" />
+    <option name="LAST_COMMIT_MESSAGE" value="added title" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

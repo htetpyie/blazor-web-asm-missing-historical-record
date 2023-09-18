@@ -5,7 +5,7 @@
            Variant="@DrawerVariant.Mini"
            Class="">
     <MudNavMenu Style="margin: 40px auto;">
-        <MudNavLink Href="/" 
+        <MudNavLink Href="/"
                     Icon="@Icons.Material.Outlined.Home"
                     Style="margin-top: 15px;">
         </MudNavLink>
@@ -17,6 +17,12 @@
                     Icon="@Icons.Material.Outlined.Bookmark"
                     Style="margin-top: 15px;">
         </MudNavLink>
+        <MudMenu Icon="@Icons.Material.Outlined.Bookmark"
+                 AnchorOrigin="Origin.BottomRight">
+            <MudMenuItem>Profile</MudMenuItem>
+            <MudMenuItem>My account</MudMenuItem>
+            <MudMenuItem>Logout</MudMenuItem>
+        </MudMenu>
     </MudNavMenu>
 </MudDrawer>
 
