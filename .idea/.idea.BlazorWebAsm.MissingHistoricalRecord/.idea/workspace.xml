@@ -8,10 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" afterDir="false" />
-    </list>
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,6 +112,7 @@
       <workItem from="1694786978496" duration="17845000" />
       <workItem from="1694847521408" duration="3237000" />
       <workItem from="1694960680191" duration="8981000" />
+      <workItem from="1695053061003" duration="996000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -242,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694969016395</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="change a little">
+      <created>1695053460661</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1695053460661</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +274,8 @@
     <MESSAGE value="repair side menu" />
     <MESSAGE value="styling a little" />
     <MESSAGE value="added title" />
-    <option name="LAST_COMMIT_MESSAGE" value="added title" />
+    <MESSAGE value="change a little" />
+    <option name="LAST_COMMIT_MESSAGE" value="change a little" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
