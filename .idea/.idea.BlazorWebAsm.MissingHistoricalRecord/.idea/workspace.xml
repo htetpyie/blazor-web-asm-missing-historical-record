@@ -8,7 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="" />
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +115,8 @@
       <workItem from="1694847521408" duration="3237000" />
       <workItem from="1694960680191" duration="8981000" />
       <workItem from="1695053061003" duration="996000" />
+      <workItem from="1695136056920" duration="819000" />
+      <workItem from="1695213310691" duration="589000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -247,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695053460661</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="aaa">
+      <created>1695137630512</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1695137630512</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +286,8 @@
     <MESSAGE value="styling a little" />
     <MESSAGE value="added title" />
     <MESSAGE value="change a little" />
-    <option name="LAST_COMMIT_MESSAGE" value="change a little" />
+    <MESSAGE value="aaa" />
+    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

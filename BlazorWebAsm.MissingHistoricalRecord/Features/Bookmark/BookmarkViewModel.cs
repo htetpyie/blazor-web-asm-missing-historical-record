@@ -11,11 +11,18 @@ public class BookmarkViewModel
     public int CreatedBy { get; set; }
 }
 
+public class BookmarkResponseModel
+{
+    public string BookTitle { get; set; }
+    public Guid BookId { get; set; }
+    public List<BookmarkViewModel> BookmarkList { get; set; }
+}
+
 public class BookmarkListResponseModel
 {
-    public List<BookmarkViewModel> BookmarkList { get; set; }
+    public List<BookmarkResponseModel> BookmarkResponse { get; set; }
     public int Count
     {
-        get => BookmarkList.Count;
+        get => BookmarkResponse.Count;
     }
 }

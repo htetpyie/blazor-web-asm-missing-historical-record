@@ -51,7 +51,7 @@ public class BookmarkService
         List<BookmarkDataModel> bookmarkDataList = await _supabase
             .GetAllAsync<BookmarkDataModel>();
 
-        response.BookmarkList = bookmarkDataList
+        var bookmarkList = bookmarkDataList
             .Select(x => new BookmarkViewModel()
             {
                 BookId = x.BookId,
@@ -59,6 +59,16 @@ public class BookmarkService
                 BookName = GetBookName(x.BookId).Result
             })
             .ToList();
+        
+        var result = bookmarkList
+            .GroupBy(x => x.BookId)
+            .Select(x => new BookmarkResponseModel()
+            {
+                BookId = x.Key,
+                BookTitle = x.First().BookName,
+                BookmarkList = x.ToList()
+            });
+        
 
         return response;
     }
