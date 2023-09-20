@@ -10,6 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +118,7 @@
       <workItem from="1694960680191" duration="8981000" />
       <workItem from="1695053061003" duration="996000" />
       <workItem from="1695136056920" duration="819000" />
-      <workItem from="1695213310691" duration="589000" />
+      <workItem from="1695213310691" duration="8188000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -258,7 +260,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695137630512</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="in pgogres">
+      <created>1695221431525</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1695221431525</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,7 +296,8 @@
     <MESSAGE value="added title" />
     <MESSAGE value="change a little" />
     <MESSAGE value="aaa" />
-    <option name="LAST_COMMIT_MESSAGE" value="aaa" />
+    <MESSAGE value="in pgogres" />
+    <option name="LAST_COMMIT_MESSAGE" value="in pgogres" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -330,6 +340,71 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs</url>
+          <line>86</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\Bookmark\BookmarkService.cs" initialLine="74" containingFunctionPresentation="Method 'GetBookmarkList'">
+            <startOffsets>
+              <option value="2370" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2386" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs</url>
+          <line>47</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\Bookmark\BookmarkService.cs" initialLine="47" containingFunctionPresentation="Method 'GetBookmarkList'">
+            <startOffsets>
+              <option value="1251" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1252" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs</url>
+          <line>81</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\Bookmark\BookmarkService.cs" initialLine="77" containingFunctionPresentation="Method 'GetBookmarkList'">
+            <startOffsets>
+              <option value="2296" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2297" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs</url>
+          <line>99</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\Bookmark\BookmarkService.cs" initialLine="95" containingFunctionPresentation="Method 'GetBookName'">
+            <startOffsets>
+              <option value="2698" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2714" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Features/Bookmark/BookmarkService.cs</url>
+          <line>90</line>
+          <properties documentPath="E:\HPPM\Projects\MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\BlazorWebAsm.MissingHistoricalRecord\Features\Bookmark\BookmarkService.cs" initialLine="86" containingFunctionPresentation="Method 'GetBookName'">
+            <startOffsets>
+              <option value="2454" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2455" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

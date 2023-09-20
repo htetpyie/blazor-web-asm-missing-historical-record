@@ -32,7 +32,7 @@ public class BookmarkService
         {
             await _supabase
                 .RemoveAsync<BookmarkDataModel>(
-                    x => 
+                    x =>
                         x.BookCode == data.BookCode &&
                         x.PageNo == data.PageNo);
             return true;
@@ -48,27 +48,41 @@ public class BookmarkService
     {
         BookmarkListResponseModel response = new();
 
-        List<BookmarkDataModel> bookmarkDataList = await _supabase
-            .GetAllAsync<BookmarkDataModel>();
+        try
+        {
+            List<BookmarkDataModel> bookmarkDataList = await _supabase
+                .GetAllAsync<BookmarkDataModel>();
 
-        var bookmarkList = bookmarkDataList
-            .Select(x => new BookmarkViewModel()
+            var bookmarkList = bookmarkDataList
+                .Select(x => new BookmarkViewModel()
+                {
+                    BookId = x.BookId,
+                    BookCode = x.BookCode,
+                })
+                .ToList();
+
+            var bookmarkResponse = bookmarkList
+                .GroupBy(x => x.BookId)
+                .Select(item =>
+                    new BookmarkResponseModel
+                    {
+                        BookId = item.Key,
+                        BookmarkList = item.ToList(),
+                    })
+                .ToList();
+
+            foreach (var item in bookmarkResponse)
             {
-                BookId = x.BookId,
-                BookCode = x.BookCode,
-                BookName = GetBookName(x.BookId).Result
-            })
-            .ToList();
-        
-        var result = bookmarkList
-            .GroupBy(x => x.BookId)
-            .Select(x => new BookmarkResponseModel()
-            {
-                BookId = x.Key,
-                BookTitle = x.First().BookName,
-                BookmarkList = x.ToList()
-            });
-        
+                item.BookTitle = await GetBookName(item.BookId);
+            }
+            
+            response.BookmarkResponse = bookmarkResponse;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
 
         return response;
     }
