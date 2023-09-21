@@ -193,9 +193,13 @@
 
     private async Task OnChangeBookMark()
     {
+        bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
+        if (!isValid) return;
+        
         var bookmark = new BookmarkDataModel
         {
             BookCode = BookCode,
+            BookId = BookIdGuid,
             PageNo = PageNo,
             CreatedDate = DateTime.Now,
         };

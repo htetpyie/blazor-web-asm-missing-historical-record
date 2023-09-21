@@ -58,6 +58,7 @@ public class BookmarkService
                 {
                     BookId = x.BookId,
                     BookCode = x.BookCode,
+                    PageNo = x.PageNo
                 })
                 .ToList();
 
@@ -76,7 +77,7 @@ public class BookmarkService
                 item.BookTitle = await GetBookName(item.BookId);
             }
             
-            response.BookmarkResponse = bookmarkResponse;
+            response.BookmarkResponseList = bookmarkResponse;
         }
         catch (Exception e)
         {

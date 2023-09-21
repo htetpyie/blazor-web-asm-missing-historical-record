@@ -1,8 +1,10 @@
-﻿<MudPaper Class="pa-6 rounded-lg" Square="true" Height="550px;">
+﻿@inject BookmarkService BookmarkService
+
+<MudPaper Class="pa-6 rounded-lg" Square="true" Height="550px;">
     <div class="flex">
         <div>
             <MudImage Src="./img/historybooks.jpg"
-                      Style="width:40px; height: 40px; border-radius: 50%;" 
+                      Style="width:40px; height: 40px; border-radius: 50%;"
                       Alt="User Profile" Elevation="0"/>
         </div>
         <div class="mx-auto my-auto">
@@ -14,21 +16,37 @@
             Your Reading Progress
         </div>
         <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75"/>
-         <div style="font-size: 0.75rem; margin-top: 3px;">800 pages left from 2 books</div>
+        <div style="font-size: 0.75rem; margin-top: 3px;">10 pages left from 3 books</div>
     </div>
 
     <div class="my-10" style="height: 330px; overflow-y: auto;">
         <MudNavGroup Title="Reading List" Icon="@Icons.Material.Filled.MenuBook" BadgeData="11">
-            <MudNavLink Href="/users">Users</MudNavLink>
-            <MudNavLink Href="/security">Security</MudNavLink>
         </MudNavGroup>
         <MudNavGroup Title="Bookmarks" Icon="@Icons.Material.Filled.Bookmark">
-            <MudNavLink Href="/users">Users</MudNavLink>
-            <MudNavLink Href="/security">Security</MudNavLink>
+            @if (BookmarkResponseList is not null)
+            {
+                @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
+                {
+                    <MudNavGroup Title="@bookmark.BookTitle">
+                        @foreach (var item in bookmark.BookmarkList)
+                        {
+                            <MudNavLink Href="/">Page No @item.PageNo</MudNavLink>
+                        }
+                    </MudNavGroup>
+                }
+            }
         </MudNavGroup>
         <MudNavGroup Title="Wish" Icon="@Icons.Material.Filled.Favorite">
-            <MudNavLink Href="/users">Users</MudNavLink>
-            <MudNavLink Href="/security">Security</MudNavLink>
         </MudNavGroup>
     </div>
 </MudPaper>
+
+@code
+{
+    private BookmarkListResponseModel BookmarkResponseList { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        BookmarkResponseList = await BookmarkService.GetBookmarkList();
+    }
+}

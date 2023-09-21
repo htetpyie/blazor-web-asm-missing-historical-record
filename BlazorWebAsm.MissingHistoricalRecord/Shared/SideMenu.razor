@@ -15,21 +15,34 @@
                     Icon="@Icons.Material.Outlined.MenuBook"
                     Style="margin-top: 15px;">
         </MudNavLink>
-        <MudNavLink Href="/"
-                    Icon="@Icons.Material.Outlined.Bookmark"
-                    Style="margin-top: 15px;">
-        </MudNavLink>
         <MudMenu Icon="@Icons.Material.Outlined.Bookmark"
-                 AnchorOrigin="Origin.BottomRight">
-            <MudMenuItem></MudMenuItem>
-            <MudMenuItem></MudMenuItem>
-            <MudMenuItem></MudMenuItem>
+                 AnchorOrigin="Origin.TopRight"
+                 Style="margin:15px auto 0 auto;">
+            @if (BookmarkResponseList is not null)
+            {
+                <MudMenuItem AutoClose="false">
+                    @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
+                    {
+                        <MudNavGroup Title="@bookmark.BookTitle">
+                            @foreach (var item in bookmark.BookmarkList)
+                            {
+                                <MudNavLink Href="/">Page No @item.PageNo</MudNavLink>
+                            }
+                        </MudNavGroup>
+                    }
+                </MudMenuItem>
+            }
+            else
+            {
+                <MudMenuItem>Nothing to show</MudMenuItem>
+            }
         </MudMenu>
     </MudNavMenu>
 </MudDrawer>
 
 @code
 {
+    private BookmarkListResponseModel BookmarkResponseList { get; set; }
     bool open = true;
 
     void ToggleDrawer()
@@ -37,8 +50,8 @@
         open = !open;
     }
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        var result = BookmarkService.GetBookmarkList();
+        BookmarkResponseList = await BookmarkService.GetBookmarkList();
     }
 }
