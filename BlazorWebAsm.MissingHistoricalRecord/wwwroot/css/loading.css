@@ -5,6 +5,7 @@
     height: 12px;
     position: absolute;
     margin: 32px 0 0 0;
+    opacity: 1 !important;
 }
 
 #loading .inner {
@@ -458,5 +459,6 @@
     z-index: 10000000 !important;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(25deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    background: linear-gradient(25deg, rgba(2, 0, 36, 1) 0%, rgb(56 56 56) 35%, rgb(35 41 67) 100%);
+    opacity: .8;
 }
