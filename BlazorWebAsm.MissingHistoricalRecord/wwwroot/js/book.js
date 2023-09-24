@@ -2,7 +2,7 @@
 
 /* View in fullscreen */
 export function openFullscreen() {
-var elem = document.getElementById('book-pages');
+    var elem = document.getElementById('book-pages');
     console.log("Okay")
     if (elem.requestFullscreen) {
         elem.requestFullscreen();

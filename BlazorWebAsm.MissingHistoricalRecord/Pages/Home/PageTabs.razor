@@ -47,7 +47,8 @@
 
     protected async override Task OnInitializedAsync()
     {
+        await LoadingService.EnableLoading();
         BookListResponse = await HomeService.GetLatestBookList();
-        
+        await LoadingService.DisableLoading();
     }
 }

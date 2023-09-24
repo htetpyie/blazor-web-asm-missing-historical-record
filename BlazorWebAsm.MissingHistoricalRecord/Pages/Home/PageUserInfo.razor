@@ -47,6 +47,8 @@
 
     protected async override Task OnInitializedAsync()
     {
+        await LoadingService.EnableLoading();
         BookmarkResponseList = await BookmarkService.GetBookmarkList();
+        await LoadingService.DisableLoading();
     }
 }

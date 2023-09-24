@@ -73,7 +73,9 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
 
     protected override async Task OnInitializedAsync()
     {
+        await LoadingService.EnableLoading();
         BookShelf = await BookShelfService.GetBookShelf();
+        await LoadingService.DisableLoading();
     }
 
     async Task PageChanged(int pageNo = 1)
@@ -86,7 +88,6 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
     void ToDetail(BookViewModel model)
     {
     // _counter = _bookShelfLst.BookList.Count;
-        Console.WriteLine(_counter);
         var item = model;
         _nav.NavigateTo($"/read-book/{item.BookId}/{item.BookCode}");
     }

@@ -147,7 +147,9 @@
         {
             previousBookId = BookId;
 
+            await LoadingService.EnableLoading();
             Response = await BookContentService.GetBookPageContents(BookId);
+            await LoadingService.DisableLoading();
             IsBookMark = Response.IsBookMark;
             PageNo = Response.LeftPageNo;
             SearchPageNo = PageNo;
@@ -180,7 +182,10 @@
 
     private async Task ClickOnPage(int pageNo)
     {
+        await LoadingService.EnableLoading();
         Response = await BookContentService.GetBookPageContents(BookId, pageNo);
+        await LoadingService.DisableLoading();
+        
         IsBookMark = Response.IsBookMark;
         PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
