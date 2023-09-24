@@ -8,8 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="add loading">
-      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/loading.css" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/css/loading.css" afterDir="false" />
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="Change Loading style">
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/js/loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/js/loading.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +119,7 @@
       <workItem from="1695213310691" duration="14289000" />
       <workItem from="1695297795572" duration="6097000" />
       <workItem from="1695357578693" duration="1304000" />
-      <workItem from="1695556870926" duration="5384000" />
+      <workItem from="1695556870926" duration="5751000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -290,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695568171938</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Change Loading style">
+      <created>1695568697960</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1695568697960</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +329,8 @@
     <MESSAGE value="bookmark list query" />
     <MESSAGE value="side menu in progress" />
     <MESSAGE value="add loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="add loading" />
+    <MESSAGE value="Change Loading style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change Loading style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
