@@ -30,7 +30,8 @@
                     <MudNavGroup Title="@bookmark.BookTitle">
                         @foreach (var item in bookmark.BookmarkList)
                         {
-                            <MudNavLink Href="/">Page No @item.PageNo</MudNavLink>
+                            string link = $@"/read-book/{bookmark.BookId}/{item.BookCode}/{item.PageNo}";
+                            <MudNavLink Href="@link">Page No @item.PageNo</MudNavLink>
                         }
                     </MudNavGroup>
                 }

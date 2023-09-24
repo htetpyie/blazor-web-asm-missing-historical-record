@@ -24,7 +24,8 @@
                         <MudNavGroup Title="@bookmark.BookTitle">
                             @foreach (var item in bookmark.BookmarkList)
                             {
-                                <MudNavLink Href="/">Page No @item.PageNo</MudNavLink>
+                                string link = $@"/read-book/{bookmark.BookId}/{item.BookCode}/{item.PageNo}";
+                                <MudNavLink OnClick="() => GoToLink(link)">Page No @item.PageNo</MudNavLink>
                             }
                         </MudNavGroup>
                     }
@@ -51,5 +52,11 @@
     protected async override Task OnInitializedAsync()
     {
         BookmarkResponseList = await BookmarkService.GetBookmarkList();
+    }
+
+    private void GoToLink(string link)
+    {
+        _nav.NavigateTo(link);
+        StateHasChanged();
     }
 }

@@ -1,5 +1,4 @@
 window.enableLoading = function () {
-    console.log(document.getElementById("loading"))
     $('#loading').css('display','flex');
     $('body').css('overflow','hidden');
 }

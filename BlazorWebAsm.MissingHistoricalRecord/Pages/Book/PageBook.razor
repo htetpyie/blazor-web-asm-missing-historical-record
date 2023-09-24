@@ -1,4 +1,5 @@
 ﻿@page "/read-book/{BookId}/{BookCode}"
+@page "/read-book/{BookId}/{BookCode}/{PageNo:int}"
 @inject BookContentService BookContentService; 
 @inject BookmarkService BookmarkService;
 @implements IAsyncDisposable;
@@ -12,7 +13,7 @@
             <MudPaper Elevation="6">
                 <MudToolBar>
                     @{ string totalPage = Response.ContentCount > 1
-                           ? $"{Response.ContentCount} pages" 
+                           ? $"{Response.ContentCount} pages"
                            : $"{Response.ContentCount} page"; }
                     <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
                         <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
@@ -111,9 +112,9 @@
             }
             <MudItem xs="6" Style="padding: 12px 4px;">
                 <MudPaper Elevation="4"
-                    MinHeight="700px"
-                    Style="line-height: 24px; font-size:1rem;"
-                    Class="@(@"d-flex pl-10 pr-10 mud-width-full py-8")">
+                          MinHeight="700px"
+                          Style="line-height: 24px; font-size:1rem;"
+                          Class="@(@"d-flex pl-10 pr-10 mud-width-full py-8")">
                     <div style="position: relative;">
                         <span style="position: absolute; top: -30px; right: 50%;">@t.BookContentPageNo.ToDigitMyanmar()</span>
                         @((MarkupString)content)
@@ -130,30 +131,36 @@
     public string? BookId { get; set; }
 
     private string? previousBookId { get; set; }
+    private int previousPageNo { get; set; }
 
     [Parameter]
     public string? BookCode { get; set; }
 
+    [Parameter]
+    public int PageNo { get; set; } = 1;
+
     private BookContentResponseModel? Response { get; set; }
     private bool IsBookMark { get; set; }
-    private int PageNo { get; set; }
     private int SearchPageNo { get; set; }
 
     private Lazy<IJSObjectReference> JSModule = new();
 
     protected override async Task OnParametersSetAsync()
     {
-        if (!BookId.IsNullOrWhiteSpace() && BookId != previousBookId)
-        {
-            previousBookId = BookId;
+        if (BookId.IsNullOrWhiteSpace() ||
+            (BookId == previousBookId &&
+             PageNo == previousPageNo)
+            ) return;
 
-            await LoadingService.EnableLoading();
-            Response = await BookContentService.GetBookPageContents(BookId);
-            await LoadingService.DisableLoading();
-            IsBookMark = Response.IsBookMark;
-            PageNo = Response.LeftPageNo;
-            SearchPageNo = PageNo;
-        }
+        previousBookId = BookId;
+        previousPageNo = PageNo;
+
+        await LoadingService.EnableLoading();
+        Response = await BookContentService.GetBookPageContents(BookId, PageNo);
+        await LoadingService.DisableLoading();
+        IsBookMark = Response.IsBookMark;
+        //PageNo = Response.LeftPageNo;
+        SearchPageNo = PageNo;
     }
 
 
@@ -185,7 +192,7 @@
         await LoadingService.EnableLoading();
         Response = await BookContentService.GetBookPageContents(BookId, pageNo);
         await LoadingService.DisableLoading();
-        
+
         IsBookMark = Response.IsBookMark;
         PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
@@ -200,7 +207,7 @@
     {
         bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
         if (!isValid) return;
-        
+
         var bookmark = new BookmarkDataModel
         {
             BookCode = BookCode,

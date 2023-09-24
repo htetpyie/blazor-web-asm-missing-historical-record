@@ -8,7 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="Change Loading style">
+    <list default="true" id="98b3b273-637c-4135-a956-0b01b77cc4cf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BlazorWebAsm.MissingHistoricalRecord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Book/PageBook.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageUserInfo.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Pages/Home/PageUserInfo.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/Shared/SideMenu.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/js/loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/BlazorWebAsm.MissingHistoricalRecord/wwwroot/js/loading.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +123,7 @@
       <workItem from="1695213310691" duration="14289000" />
       <workItem from="1695297795572" duration="6097000" />
       <workItem from="1695357578693" duration="1304000" />
-      <workItem from="1695556870926" duration="5751000" />
+      <workItem from="1695556870926" duration="8681000" />
     </task>
     <task id="LOCAL-00001" summary="change from services to features">
       <created>1694340892190</created>
@@ -296,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695568697960</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fixed loading bug">
+      <created>1695569049595</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1695569049595</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +316,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="change from services to features" />
     <MESSAGE value="added photo and book shelf list" />
     <MESSAGE value="bookshelf pagination done" />
     <MESSAGE value="book content done" />
@@ -330,7 +340,8 @@
     <MESSAGE value="side menu in progress" />
     <MESSAGE value="add loading" />
     <MESSAGE value="Change Loading style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change Loading style" />
+    <MESSAGE value="fixed loading bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed loading bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
