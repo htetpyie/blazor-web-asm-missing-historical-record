@@ -155,11 +155,11 @@
         previousBookId = BookId;
         previousPageNo = PageNo;
 
-        await LoadingService.EnableLoading();
+        LoadingService.EnableLoading();
         Response = await BookContentService.GetBookPageContents(BookId, PageNo);
-        await LoadingService.DisableLoading();
+        LoadingService.DisableLoading();
         IsBookMark = Response.IsBookMark;
-        //PageNo = Response.LeftPageNo;
+    //PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
     }
 
@@ -189,9 +189,9 @@
 
     private async Task ClickOnPage(int pageNo)
     {
-        await LoadingService.EnableLoading();
+        LoadingService.EnableLoading();
         Response = await BookContentService.GetBookPageContents(BookId, pageNo);
-        await LoadingService.DisableLoading();
+        LoadingService.DisableLoading();
 
         IsBookMark = Response.IsBookMark;
         PageNo = Response.LeftPageNo;

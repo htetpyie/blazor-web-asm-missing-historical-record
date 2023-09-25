@@ -73,9 +73,9 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadingService.EnableLoading();
+        LoadingService.EnableLoading();
         BookShelf = await BookShelfService.GetBookShelf();
-        await LoadingService.DisableLoading();
+        LoadingService.DisableLoading();
     }
 
     async Task PageChanged(int pageNo = 1)

@@ -15,9 +15,9 @@ builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddMudServices();
+builder.Services.AddSingleton<ILoadingService,LoadingService>();
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddSingleton<SupabaseService>();
-builder.Services.AddSingleton<ILoadingService,LoadingService>();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<BookShelfService>();
 builder.Services.AddScoped<BookContentService>();

@@ -11,13 +11,13 @@ public class LoadingService : ILoadingService
         _jsRuntime = jsRuntime;
     }
 
-    public async Task EnableLoading()
+    public void EnableLoading()
     {
-        await _jsRuntime.InvokeVoidAsync("enableLoading");
+         _jsRuntime.InvokeVoidAsync("enableLoading");
     }
-    public async Task DisableLoading()
+    public void DisableLoading()
     {
-        await _jsRuntime.InvokeVoidAsync("disableLoading");
+         _jsRuntime.InvokeVoidAsync("disableLoading");
 
     }
 }

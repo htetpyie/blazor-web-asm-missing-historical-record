@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    window.enableLoading();
+})
+
 window.enableLoading = function () {
     $('#loading').css('display','flex');
     $('body').css('overflow','hidden');
@@ -6,5 +10,4 @@ window.enableLoading = function () {
 window.disableLoading = function () {
     $('#loading').css('display', 'none');
     $('body').css('overflow','auto');
-    
 }

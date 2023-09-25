@@ -1,47 +1,39 @@
 ﻿@inject BookmarkService BookmarkService
 
-<MudDrawer @bind-Open="@open" Width="100px" Fixed="true"
-           ClipMode="DrawerClipMode.Docked"
+<MudDrawer @bind-Open="@open" Width="250px" Fixed="true"
+           ClipMode="DrawerClipMode.Always"
            Anchor="Anchor.Start"
            Elevation="0"
-           Variant="@DrawerVariant.Mini"
+           Variant="@DrawerVariant.Persistent"
            Class="">
-    <MudNavMenu Style="margin: 40px auto;">
-        <MudNavLink Href="/"
-                    Icon="@Icons.Material.Outlined.Home">
-        </MudNavLink>
-        <MudNavLink Href="/book-list"
-                    Icon="@Icons.Material.Outlined.MenuBook">
-        </MudNavLink>
-        <MudMenu Icon="@Icons.Material.Outlined.Bookmark"
-                 AnchorOrigin="Origin.TopRight"
-                 Style="margin:15px auto 0 auto;">
+    <MudNavMenu>
+        <MudNavLink Icon="@Icons.Material.Outlined.Home" Href="/">Home</MudNavLink>
+        <MudNavLink Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
+        <MudNavGroup Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
             @if (BookmarkResponseList is not null)
             {
-                <MudMenuItem AutoClose="false">
-                    @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
-                    {
-                        <MudNavGroup Title="@bookmark.BookTitle">
-                            @foreach (var item in bookmark.BookmarkList)
-                            {
-                                string link = $@"/read-book/{bookmark.BookId}/{item.BookCode}/{item.PageNo}";
-                                <MudNavLink OnClick="() => GoToLink(link)">Page No @item.PageNo</MudNavLink>
-                            }
-                        </MudNavGroup>
-                    }
-                </MudMenuItem>
+                @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
+                {
+                    <MudNavGroup Title="@bookmark.BookTitle">
+                        @foreach (var item in bookmark.BookmarkList)
+                        {
+                            string link = $@"/read-book/{bookmark.BookId}/{item.BookCode}/{item.PageNo}";
+                            <MudNavLink OnClick="() => GoToLink(link)">Page No @item.PageNo</MudNavLink>
+                        }
+                    </MudNavGroup>
+                }
             }
-            else
-            {
-                <MudMenuItem>Nothing to show</MudMenuItem>
-            }
-        </MudMenu>
+        </MudNavGroup>
     </MudNavMenu>
 </MudDrawer>
-
+ <MudIconButton Icon="@Icons.Material.Filled.Menu" 
+                   Color="Color.Inherit"
+                   Edge="Edge.End" OnClick="@ToggleDrawer" />
 @code
 {
     private BookmarkListResponseModel BookmarkResponseList { get; set; }
+    private string bookListLink = "/book-list";
+    private string homeLink = "/";
     bool open = true;
 
     void ToggleDrawer()
@@ -51,12 +43,12 @@
 
     protected async override Task OnInitializedAsync()
     {
+        if (BookmarkResponseList is not null) return;
         BookmarkResponseList = await BookmarkService.GetBookmarkList();
     }
 
     private void GoToLink(string link)
     {
         _nav.NavigateTo(link);
-        StateHasChanged();
     }
 }
