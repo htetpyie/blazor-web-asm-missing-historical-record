@@ -1,15 +1,22 @@
 ﻿@inject BookmarkService BookmarkService
 
+<div style="position:relative">
+    <MudIconButton Icon="@(open ? Icons.Material.Filled.Close : Icons.Material.Filled.DoubleArrow)"
+                   Color="@(open ?Color.Secondary : Color.Success )"
+                   Edge="Edge.End" OnClick="@ToggleDrawer"
+                   Style="@(open ? openMenuBtnLocation : closedMenuBtnLocation)" />
+</div>
 <MudDrawer @bind-Open="@open" Width="250px" Fixed="true"
            ClipMode="DrawerClipMode.Always"
            Anchor="Anchor.Start"
            Elevation="0"
-           Variant="@DrawerVariant.Persistent"
-           Class="">
-    <MudNavMenu>
-        <MudNavLink Icon="@Icons.Material.Outlined.Home" Href="/">Home</MudNavLink>
-        <MudNavLink Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
-        <MudNavGroup Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
+           Variant="@DrawerVariant.Responsive"
+           Style="margin-left:2px; border-radius: 10px;">
+
+    <MudNavMenu Style="padding-top:40px !important;" Margin="Margin.Dense" Color="Color.Primary" Class="pa-2">
+        <MudNavLink Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/">Home</MudNavLink>
+        <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
+        <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
             @if (BookmarkResponseList is not null)
             {
                 @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
@@ -26,15 +33,15 @@
         </MudNavGroup>
     </MudNavMenu>
 </MudDrawer>
- <MudIconButton Icon="@Icons.Material.Filled.Menu" 
-                   Color="Color.Inherit"
-                   Edge="Edge.End" OnClick="@ToggleDrawer" />
 @code
 {
     private BookmarkListResponseModel BookmarkResponseList { get; set; }
     private string bookListLink = "/book-list";
     private string homeLink = "/";
     bool open = true;
+
+    private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:65px; left:200px;";
+    private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:65px; left:-10px;";
 
     void ToggleDrawer()
     {

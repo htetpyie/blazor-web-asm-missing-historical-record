@@ -73,3 +73,10 @@ a, .btn-link {
     backdrop-filter: blur(12px);
     z-index: 1301;
 }
+
+.mhr-navlink{
+    padding:5px 0;
+}
+.mhr-navlink .mud-nav-link {
+    border-radius: 8px;
+}
