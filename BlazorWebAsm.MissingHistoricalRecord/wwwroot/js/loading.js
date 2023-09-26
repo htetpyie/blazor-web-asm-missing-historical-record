@@ -3,8 +3,11 @@ $(document).ready(function () {
 })
 
 window.enableLoading = function () {
-    $('#loading').css('display','flex');
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0
+
     $('body').css('overflow','hidden');
+    $('#loading').css('display','flex');
 }
 
 window.disableLoading = function () {

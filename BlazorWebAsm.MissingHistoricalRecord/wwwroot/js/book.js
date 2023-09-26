@@ -12,11 +12,10 @@ export function openFullscreen() {
     } else if (elem.msRequestFullscreen) { /* IE/Edge */
         elem.msRequestFullscreen();
     }
-    showButtons();
 }
 
 /* Close fullscreen */
-function closeFullscreen() {
+ function closeFullscreen() {
     if (document.exitFullscreen) {
         document.exitFullscreen();
     } else if (document.mozCancelFullScreen) { /* Firefox */
@@ -26,7 +25,6 @@ function closeFullscreen() {
     } else if (document.msExitFullscreen) { /* IE/Edge */
         document.msExitFullscreen();
     }
-    hideButtons();
 }
 
 function showButtons(){

@@ -5,8 +5,8 @@
 @implements IAsyncDisposable;
 
 @if (Response is not null &&
-   Response.ContentCount > 0 &&
-   Response?.BookName is not null)
+  Response.ContentCount > 0 &&
+  Response?.BookName is not null)
 {
     <MudGrid>
         <MudItem xs="12">
@@ -119,10 +119,10 @@
                     <MudIconButton Icon="@Icons.Material.Filled.ChevronLeft"
                        Disabled="(PageNo - 1 <= 0)"
                        OnClick="() => ClickOnPage(PageNo - 1)"
-                       Variant="Variant.Text" Color="Color.Primary" Size="Size.Large"
-                       Style="position:absolute !important; top:50%; left:-20px;display:none;"
-                       Id="left-btn"
-                       Class="me-2"/>
+                       Variant="Variant.Filled" Color="Color.Primary" Size="Size.Medium"
+                       Style="position:absolute !important; top:50%; left:-5px;"
+                                   Id="left-btn"
+                       Class="me-2" />
                 }
                 <MudPaper Elevation="4"
                   MinHeight="100vh"
@@ -131,8 +131,8 @@
                     <div style="position: relative;">
                         <span style="position: absolute; top: -30px; right: 50%;">@t.BookContentPageNo.ToDigitMyanmar()</span>
                         @(
-                    (MarkupString)content
-                    )
+                            (MarkupString)content
+                            )
                     </div>
                 </MudPaper>
 
@@ -141,10 +141,10 @@
                     <MudIconButton Icon="@Icons.Material.Filled.ChevronRight"
                        Disabled="(PageNo >= Response.ContentCount - 1)"
                        OnClick="() => ClickOnPage(PageNo + 2)"
-                       Variant="Variant.Text" Color="Color.Primary" Size="Size.Large"
+                       Variant="Variant.Filled" Color="Color.Primary" Size="Size.Small"
                        Class="ms-2"
-                       Id="right-btn"
-                       Style="position:absolute !important; right:-20px; top:50%;display:none;"/>
+                                   Id="right-btn"
+                       Style="position:absolute !important; right:-5px; top:50%;" />
                 }
 
             </MudItem>
@@ -187,7 +187,7 @@
         Response = await BookContentService.GetBookPageContents(BookId, PageNo);
         LoadingService.DisableLoading();
         IsBookMark = Response.IsBookMark;
-        //PageNo = Response.LeftPageNo;
+        PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
     }
 
