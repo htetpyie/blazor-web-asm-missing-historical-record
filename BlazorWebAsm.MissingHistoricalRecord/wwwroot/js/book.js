@@ -3,7 +3,6 @@
 /* View in fullscreen */
 export function openFullscreen() {
     var elem = document.getElementById('book-pages');
-    console.log("Okay")
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) { /* Firefox */
@@ -13,6 +12,7 @@ export function openFullscreen() {
     } else if (elem.msRequestFullscreen) { /* IE/Edge */
         elem.msRequestFullscreen();
     }
+    showButtons();
 }
 
 /* Close fullscreen */
@@ -26,4 +26,15 @@ function closeFullscreen() {
     } else if (document.msExitFullscreen) { /* IE/Edge */
         document.msExitFullscreen();
     }
+    hideButtons();
+}
+
+function showButtons(){
+    $('#left-btn').css("display", "block");
+    $('#right-btn').css("display", "block");
+}
+
+function hideButtons() {
+    $('#left-btn').css("display", "none");
+    $('#right-btn').css("display", "none");
 }

@@ -11,10 +11,10 @@
            Anchor="Anchor.Start"
            Elevation="0"
            Variant="@DrawerVariant.Responsive"
-           Style="margin-left:2px; border-radius: 10px;">
+           Style="margin-left:1px; border-radius: 10px; margin-right:3px;">
 
-    <MudNavMenu Style="padding-top:40px !important;" Margin="Margin.Dense" Color="Color.Primary" Class="pa-2">
-        <MudNavLink Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/">Home</MudNavLink>
+    <MudNavMenu Style="padding-top:40px !important;" Margin="Margin.Dense" Color="Color.Warning" Class="pa-2">
+        <MudNavLink Match="NavLinkMatch.Prefix" Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/home">Home</MudNavLink>
         <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
         <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
             @if (BookmarkResponseList is not null)
@@ -40,8 +40,8 @@
     private string homeLink = "/";
     bool open = true;
 
-    private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:65px; left:200px;";
-    private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:65px; left:-10px;";
+    private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:200px;";
+    private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:-10px;";
 
     void ToggleDrawer()
     {
