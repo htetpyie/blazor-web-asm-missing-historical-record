@@ -149,6 +149,29 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule
             }
         }
 
+        public async Task<List<T>> GetListByIndexAsync<T>(
+            Expression<Func<T, bool>> wherePredicate,
+            int startIndex = 1, int pageSize = 10)
+            where T : BaseModel, new()
+        {
+           
+            try
+            {
+                int to = startIndex + pageSize -1 ;
+                var result = await SupabaseConnection
+                    .From<T>()
+                    .Where(wherePredicate)
+                    .Range(startIndex, to)
+                    .Get();
+                return result.Models;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public async Task<List<T>> GetLatestListAsync<T>(
             Expression<Func<T, bool>> wherePredicate,
             Expression<Func<T, object>> Orderbypredicate,

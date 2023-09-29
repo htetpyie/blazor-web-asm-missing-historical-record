@@ -2,7 +2,7 @@
 @page "/book_shelf"
 @inject BookShelfService BookShelfService;
 
-@if (BookShelf is not null && BookShelf.BookList.Count < 1)
+@*@if (BookShelf is not null && BookShelf.BookList.Count < 1)
 {
     <div class="bookshelf">
         <div class="book-grid">
@@ -20,7 +20,7 @@ else if (BookShelf is not null && BookShelf.BookList.Count <= 4)
                 @foreach (var item in BookShelf.BookList)
                 {
                     <li>
-                        <img @onclick="() => ToDetail(item)" src="@item.BookCover"/>
+                        <img @onclick="() => ToDetail(item)" src="@item.BookCover" />
                     </li>
                 }
             </ul>
@@ -41,10 +41,10 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
                         @if (BookShelf.BookList.Count != _counter)
                         {
                             var item = BookShelf.BookList.Count != _counter ?
-                                BookShelf.BookList[_counter]
-                                : BookShelf.BookList[BookShelf.BookList.Count - 1];
+                            BookShelf.BookList[_counter]
+                            : BookShelf.BookList[BookShelf.BookList.Count - 1];
                             <li>
-                                <img @onclick="() => ToDetail(item)" src="@item.BookCover"/>
+                                <img @onclick="() => ToDetail(item)" src="@item.BookCover" />
                             </li>
                             _counter++;
                         }
@@ -61,35 +61,76 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
 {
     <div class="text-center" style="text-align: center;margin-top: -2.5rem;">
         <MudPagination SelectedChanged="PageChanged" ShowFirstButton="true" ShowLastButton="true"
-                       Count="@(BookShelf.TotalPage)"
-                       Class="mt-0 pt-0"/>
+                   Count="@(BookShelf.TotalPage)"
+                   Class="mt-0 pt-0" />
     </div>
-}
+}*@
+
+<Virtualize ItemsProvider="LoadOnlyOnePage" Context="book">
+    <ItemContent>
+        <div class="book-grid" style="height: 300px;">
+            <img @onclick="() => ToDetail(book)" src="@book.BookCover" />
+        </div>
+    </ItemContent>
+    <Placeholder>
+        <div class="book-grid" style="height:300px;">
+            <p>Loading ...</p>
+        </div>
+    </Placeholder>
+</Virtualize>
 
 
 @code {
     private BookShelfResponseModel? BookShelf { get; set; }
     private int _counter = 0;
+    private int TotalBookCount { get; set; }
+    private List<BookViewModel> BookList { get; set; } = new();
 
     protected override async Task OnInitializedAsync()
     {
         LoadingService.EnableLoading();
-        BookShelf = await BookShelfService.GetBookShelf();
+
+        //if (BookShelf is not null) TotalBookCount = BookShelf.BookCount;
+        //BookShelf = await BookShelfService.GetBookShelf();
+
         LoadingService.DisableLoading();
     }
 
-    async Task PageChanged(int pageNo = 1)
+    private async Task PageChanged(int pageNo = 1)
     {
         int pageSize = 8;
         _counter = 0;
         BookShelf = await BookShelfService.GetBookShelf(pageNo, pageSize);
     }
 
+    private async ValueTask<ItemsProviderResult<BookViewModel>> LoadOnlyOnePage(
+        ItemsProviderRequest itemsProvider)
+    {
+        int startIndex = itemsProvider.StartIndex;
+        int count = itemsProvider.Count;
+
+        Console.WriteLine($"start index {startIndex}");
+        Console.WriteLine($"count {count}");
+        Console.WriteLine($"total book count {TotalBookCount}");
+
+        if(TotalBookCount <= 0)
+        {
+            TotalBookCount = await BookShelfService.GetBookCount();
+        }
+
+        var bookList = await BookShelfService.GetBookList(startIndex, 3);
+        Console.WriteLine($"Fetch count {bookList.Count}");
+
+        BookList.AddRange(bookList);
+
+        return new ItemsProviderResult<BookViewModel>(BookList, TotalBookCount);
+    }
+
     void ToDetail(BookViewModel model)
     {
-    // _counter = _bookShelfLst.BookList.Count;
+        // _counter = _bookShelfLst.BookList.Count;
         var item = model;
-        _nav.NavigateTo($"/read-book/{item.BookId}/{item.BookCode}");
+        _nav.NavigateTo($"/read-book/{item.BookId}/{TotalBookCount}");
     }
 
 }
