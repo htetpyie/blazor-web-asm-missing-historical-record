@@ -85,6 +85,7 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
     private int _counter = 0;
     private int TotalBookCount { get; set; }
     private List<BookViewModel> BookList { get; set; } = new();
+    private int startIndex { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -106,7 +107,7 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
     private async ValueTask<ItemsProviderResult<BookViewModel>> LoadOnlyOnePage(
         ItemsProviderRequest itemsProvider)
     {
-        int startIndex = itemsProvider.StartIndex;
+        //int startIndex = itemsProvider.StartIndex;
         int count = itemsProvider.Count;
 
         Console.WriteLine($"start index {startIndex}");
@@ -122,6 +123,8 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
         Console.WriteLine($"Fetch count {bookList.Count}");
 
         BookList.AddRange(bookList);
+
+        startIndex = BookList.Count - 1;
 
         return new ItemsProviderResult<BookViewModel>(BookList, TotalBookCount);
     }
