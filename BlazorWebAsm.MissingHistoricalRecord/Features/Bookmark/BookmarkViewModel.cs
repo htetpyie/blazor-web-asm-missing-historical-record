@@ -9,19 +9,3 @@ public class BookmarkViewModel
     public DateTime CreatedDate { get; set; }
     public int CreatedBy { get; set; }
 }
-
-public class BookmarkResponseModel
-{
-    public string BookTitle { get; set; }
-    public Guid BookId { get; set; }
-    public List<BookmarkViewModel> BookmarkList { get; set; }
-}
-
-public class BookmarkListResponseModel
-{
-    public List<BookmarkResponseModel> BookmarkResponseList { get; set; }
-    public int Count
-    {
-        get => BookmarkResponseList.Count;
-    }
-}

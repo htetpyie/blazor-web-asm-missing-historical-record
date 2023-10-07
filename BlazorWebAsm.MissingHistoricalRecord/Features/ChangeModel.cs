@@ -1,6 +1,7 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
 using BlazorWebAsm.MissingHistoricalRecord.Features.BookContent;
 using BlazorWebAsm.MissingHistoricalRecord.Features.Bookmark;
+using BlazorWebAsm.MissingHistoricalRecord.Features.WishBook;
 
 namespace BlazorWebAsm.MissingHistoricalRecord.Features
 {
