@@ -23,5 +23,6 @@ builder.Services.AddScoped<BookShelfService>();
 builder.Services.AddScoped<BookContentService>();
 builder.Services.AddScoped<BookmarkService>();
 builder.Services.AddScoped<HomeService>();
+builder.Services.AddScoped<BookmarkState>();
 
 await builder.Build().RunAsync();

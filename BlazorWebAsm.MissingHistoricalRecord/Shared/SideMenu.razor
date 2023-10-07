@@ -1,4 +1,6 @@
 ﻿@inject BookmarkService BookmarkService
+@inject BookmarkState BookmarkState
+@implements IDisposable;
 
 <div style="position:relative">
     <MudIconButton Icon="@(open ? Icons.Material.Filled.Close : Icons.Material.Filled.DoubleArrow)"
@@ -17,9 +19,9 @@
         <MudNavLink Match="NavLinkMatch.Prefix" Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/home">Home</MudNavLink>
         <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
         <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
-            @if (BookmarkResponseList is not null)
+            @if (BookmarkState.BookMarkList is not null)
             {
-                @foreach (var bookmark in BookmarkResponseList.BookmarkResponseList)
+                @foreach (var bookmark in BookmarkState.BookMarkList.BookmarkResponseList)
                 {
                     <MudNavGroup Title="@bookmark.BookTitle">
                         @foreach (var item in bookmark.BookmarkList)
@@ -35,7 +37,6 @@
 </MudDrawer>
 @code
 {
-    private BookmarkListResponseModel BookmarkResponseList { get; set; }
     private string bookListLink = "/book-list";
     private string homeLink = "/";
     bool open = true;
@@ -50,12 +51,19 @@
 
     protected async override Task OnInitializedAsync()
     {
-        if (BookmarkResponseList is not null) return;
-        BookmarkResponseList = await BookmarkService.GetBookmarkList();
+        BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
+        BookmarkState.OnChange += BookmarkStateHasChanged;
     }
 
     private void GoToLink(string link)
     {
         _nav.NavigateTo(link);
+    }
+
+    void BookmarkStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+
+    void IDisposable.Dispose()
+    {
+        BookmarkState.OnChange -= BookmarkStateHasChanged;
     }
 }

@@ -2,11 +2,12 @@
 @page "/read-book/{BookId}/{BookCode}/{PageNo:int}"
 @inject BookContentService BookContentService;
 @inject BookmarkService BookmarkService;
+@inject BookmarkState BookmarkState;
 @implements IAsyncDisposable;
 
 @if (Response is not null &&
-  Response.ContentCount > 0 &&
-  Response?.BookName is not null)
+ Response.ContentCount > 0 &&
+ Response?.BookName is not null)
 {
     <MudGrid>
         <MudItem xs="12">
@@ -253,6 +254,7 @@
             await BookmarkService.SaveBookmark(bookmark);
         }
         IsBookMark = !IsBookMark;
+        BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
     }
 
 }
