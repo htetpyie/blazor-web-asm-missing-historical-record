@@ -6,6 +6,7 @@ using BlazorWebAsm.MissingHistoricalRecord.Features.BookShelf;
 using BlazorWebAsm.MissingHistoricalRecord.Features.Home;
 using BlazorWebAsm.MissingHistoricalRecord.Features.Loading;
 using BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule;
+using BlazorWebAsm.MissingHistoricalRecord.Features.WishBook;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
@@ -22,7 +23,9 @@ builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<BookShelfService>();
 builder.Services.AddScoped<BookContentService>();
 builder.Services.AddScoped<BookmarkService>();
+builder.Services.AddScoped<WishBookService>();
 builder.Services.AddScoped<HomeService>();
 builder.Services.AddScoped<BookmarkState>();
+builder.Services.AddScoped<WishBookState>();
 
 await builder.Build().RunAsync();

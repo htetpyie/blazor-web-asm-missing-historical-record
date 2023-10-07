@@ -1,5 +1,7 @@
 ﻿@inject BookmarkService BookmarkService
 @inject BookmarkState BookmarkState
+@inject WishBookState WishBookState
+@inject WishBookService WishBookService
 @implements IDisposable;
 
 <div style="position:relative">
@@ -33,37 +35,51 @@
                 }
             }
         </MudNavGroup>
+        <MudNavGroup Class="mhr-navlink" Title="Wish List" Expanded="false" Icon="@Icons.Material.Outlined.Favorite">
+            @if (WishBookState.WishBookListResponse is not null)
+                        {
+            @foreach (var item in WishBookState.WishBookListResponse.WishBookList)
+            {
+                string link = $@"/read-book/{item.BookId}/{item.BookCode}";
+                <MudNavLink OnClick="() => GoToLink(link)">@item.BookName</MudNavLink>
+                }
+            }
+        </MudNavGroup>
     </MudNavMenu>
 </MudDrawer>
 @code
 {
     private string bookListLink = "/book-list";
-    private string homeLink = "/";
-    bool open = true;
+private string homeLink = "/";
+bool open = true;
 
-    private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:200px;";
-    private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:-10px;";
+private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:200px;";
+private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:-10px;";
 
-    void ToggleDrawer()
+void ToggleDrawer()
+{
+    open = !open;
+}
+
+protected async override Task OnInitializedAsync()
+{
+    BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
+    WishBookState.WishBookListResponse = await WishBookService.GetWishBookList();
+    BookmarkState.OnChange += BookmarkStateHasChanged;
+    WishBookState.OnChange += WishBookStateHasChanged;
+}
+
+private void GoToLink(string link)
+{
+    _nav.NavigateTo(link);
+}
+
+void BookmarkStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+void WishBookStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+
+void IDisposable.Dispose()
     {
-        open = !open;
-    }
-
-    protected async override Task OnInitializedAsync()
-    {
-        BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
-        BookmarkState.OnChange += BookmarkStateHasChanged;
-    }
-
-    private void GoToLink(string link)
-    {
-        _nav.NavigateTo(link);
-    }
-
-    void BookmarkStateHasChanged(object sender, EventArgs e) => StateHasChanged();
-
-    void IDisposable.Dispose()
-    {
-        BookmarkState.OnChange -= BookmarkStateHasChanged;
-    }
+    BookmarkState.OnChange -= BookmarkStateHasChanged;
+    WishBookState.OnChange -= WishBookStateHasChanged;
+}
 }

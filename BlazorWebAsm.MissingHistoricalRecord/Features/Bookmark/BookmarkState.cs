@@ -14,7 +14,7 @@
             }
         }
 
-        public event EventHandler OnChange;
+        public event EventHandler? OnChange;
 
         private void BookmarkStateHasChanged() => OnChange?.Invoke(this,EventArgs.Empty);
     }
