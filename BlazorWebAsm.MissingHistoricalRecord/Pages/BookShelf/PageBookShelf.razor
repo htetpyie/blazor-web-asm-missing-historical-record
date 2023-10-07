@@ -2,7 +2,7 @@
 @page "/book_shelf"
 @inject BookShelfService BookShelfService;
 
-@*@if (BookShelf is not null && BookShelf.BookList.Count < 1)
+@if (BookShelf is not null && BookShelf.BookList.Count < 1)
 {
     <div class="bookshelf">
         <div class="book-grid">
@@ -64,21 +64,7 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
                    Count="@(BookShelf.TotalPage)"
                    Class="mt-0 pt-0" />
     </div>
-}*@
-
-<Virtualize ItemsProvider="LoadOnlyOnePage" Context="book">
-    <ItemContent>
-        <div class="book-grid" style="height: 300px;">
-            <img @onclick="() => ToDetail(book)" src="@book.BookCover" />
-        </div>
-    </ItemContent>
-    <Placeholder>
-        <div class="book-grid" style="height:300px;">
-            <p>Loading ...</p>
-        </div>
-    </Placeholder>
-</Virtualize>
-
+}
 
 @code {
     private BookShelfResponseModel? BookShelf { get; set; }
@@ -91,8 +77,8 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
     {
         LoadingService.EnableLoading();
 
-        //if (BookShelf is not null) TotalBookCount = BookShelf.BookCount;
-        //BookShelf = await BookShelfService.GetBookShelf();
+        if (BookShelf is not null) TotalBookCount = BookShelf.BookCount;
+        BookShelf = await BookShelfService.GetBookShelf();
 
         LoadingService.DisableLoading();
     }
@@ -104,30 +90,6 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
         BookShelf = await BookShelfService.GetBookShelf(pageNo, pageSize);
     }
 
-    private async ValueTask<ItemsProviderResult<BookViewModel>> LoadOnlyOnePage(
-        ItemsProviderRequest itemsProvider)
-    {
-        //int startIndex = itemsProvider.StartIndex;
-        int count = itemsProvider.Count;
-
-        Console.WriteLine($"start index {startIndex}");
-        Console.WriteLine($"count {count}");
-        Console.WriteLine($"total book count {TotalBookCount}");
-
-        if(TotalBookCount <= 0)
-        {
-            TotalBookCount = await BookShelfService.GetBookCount();
-        }
-
-        var bookList = await BookShelfService.GetBookList(startIndex, 3);
-        Console.WriteLine($"Fetch count {bookList.Count}");
-
-        BookList.AddRange(bookList);
-
-        startIndex = BookList.Count - 1;
-
-        return new ItemsProviderResult<BookViewModel>(BookList, TotalBookCount);
-    }
 
     void ToDetail(BookViewModel model)
     {
