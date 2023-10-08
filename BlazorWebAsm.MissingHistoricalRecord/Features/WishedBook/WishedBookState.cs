@@ -1,9 +1,9 @@
-﻿namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
+﻿namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishedBook
 {
-    public class WishBookState
+    public class WishedBookState
     {
-        private WishBookListResponseModel? wishBookListResponse;
-        public WishBookListResponseModel? WishBookListResponse
+        private WishedBookListResponseModel? wishBookListResponse;
+        public WishedBookListResponseModel? WishBookListResponse
         {
             get => wishBookListResponse;
             set

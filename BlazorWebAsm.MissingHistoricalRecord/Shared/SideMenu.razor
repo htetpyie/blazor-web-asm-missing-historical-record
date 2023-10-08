@@ -1,7 +1,7 @@
 ﻿@inject BookmarkService BookmarkService
 @inject BookmarkState BookmarkState
-@inject WishBookState WishBookState
-@inject WishBookService WishBookService
+@inject WishedBookState WishBookState
+@inject WishedBookService WishBookService
 @implements IDisposable;
 
 <div style="position:relative">
@@ -19,7 +19,7 @@
 
     <MudNavMenu Style="padding-top:40px !important;" Margin="Margin.Dense" Color="Color.Warning" Class="pa-2">
         <MudNavLink Match="NavLinkMatch.Prefix" Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/home">Home</MudNavLink>
-        <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">Book List</MudNavLink>
+        <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">All Books</MudNavLink>
         <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
             @if (BookmarkState.BookMarkList is not null)
             {
@@ -37,11 +37,11 @@
         </MudNavGroup>
         <MudNavGroup Class="mhr-navlink" Title="Wish List" Expanded="false" Icon="@Icons.Material.Outlined.Favorite">
             @if (WishBookState.WishBookListResponse is not null)
-                        {
-            @foreach (var item in WishBookState.WishBookListResponse.WishBookList)
             {
-                string link = $@"/read-book/{item.BookId}/{item.BookCode}";
-                <MudNavLink OnClick="() => GoToLink(link)">@item.BookName</MudNavLink>
+                @foreach (var item in WishBookState.WishBookListResponse.WishedBookList)
+                {
+                    string link = $@"/read-book/{item.BookId}/{item.BookCode}";
+                    <MudNavLink OnClick="() => GoToLink(link)">@item.BookName</MudNavLink>
                 }
             }
         </MudNavGroup>
@@ -50,36 +50,36 @@
 @code
 {
     private string bookListLink = "/book-list";
-private string homeLink = "/";
-bool open = true;
+    private string homeLink = "/";
+    bool open = true;
 
-private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:200px;";
-private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:-10px;";
+    private string openMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:200px;";
+    private string closedMenuBtnLocation = "z-index: 100000; position: fixed;top:70px; left:-10px;";
 
-void ToggleDrawer()
-{
-    open = !open;
-}
-
-protected async override Task OnInitializedAsync()
-{
-    BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
-    WishBookState.WishBookListResponse = await WishBookService.GetWishBookList();
-    BookmarkState.OnChange += BookmarkStateHasChanged;
-    WishBookState.OnChange += WishBookStateHasChanged;
-}
-
-private void GoToLink(string link)
-{
-    _nav.NavigateTo(link);
-}
-
-void BookmarkStateHasChanged(object sender, EventArgs e) => StateHasChanged();
-void WishBookStateHasChanged(object sender, EventArgs e) => StateHasChanged();
-
-void IDisposable.Dispose()
+    void ToggleDrawer()
     {
-    BookmarkState.OnChange -= BookmarkStateHasChanged;
-    WishBookState.OnChange -= WishBookStateHasChanged;
-}
+        open = !open;
+    }
+
+    protected async override Task OnInitializedAsync()
+    {
+        BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
+        WishBookState.WishBookListResponse = await WishBookService.GetWishBookList();
+        BookmarkState.OnChange += BookmarkStateHasChanged;
+        WishBookState.OnChange += WishBookStateHasChanged;
+    }
+
+    private void GoToLink(string link)
+    {
+        _nav.NavigateTo(link);
+    }
+
+    void BookmarkStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+    void WishBookStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+
+    void IDisposable.Dispose()
+    {
+        BookmarkState.OnChange -= BookmarkStateHasChanged;
+        WishBookState.OnChange -= WishBookStateHasChanged;
+    }
 }

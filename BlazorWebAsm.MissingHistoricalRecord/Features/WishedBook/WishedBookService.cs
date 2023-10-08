@@ -1,18 +1,18 @@
 ﻿using BlazorWebAsm.MissingHistoricalRecord.Features.Book;
 using BlazorWebAsm.MissingHistoricalRecord.Features.SupabaseModule;
 
-namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
+namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishedBook
 {
-    public class WishBookService
+    public class WishedBookService
     {
         private readonly SupabaseService _supabase;
 
-        public WishBookService(SupabaseService supabase)
+        public WishedBookService(SupabaseService supabase)
         {
             _supabase = supabase;
         }
 
-        public async Task<bool> SaveWishBook(WishBookDataModel model)
+        public async Task<bool> SaveWishBook(WishedBookDataModel model)
         {
             try
             {
@@ -26,11 +26,14 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
             }
         }
 
-        public async Task<bool> RemoveBookmark(WishBookDataModel data)
+        public async Task<bool> RemoveBookmark(WishedBookDataModel data)
         {
             try
             {
-                await _supabase.RemoveAsync<WishBookDataModel>(x => x.WishBookId == data.WishBookId);
+                await _supabase.RemoveAsync<WishedBookDataModel>(x =>
+                x.BookId == data.BookId &&
+                x.BookCode == data.BookCode
+                );
                 return true;
             }
             catch (Exception e)
@@ -40,17 +43,38 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
             }
         }
 
-        public async Task<WishBookListResponseModel> GetWishBookList(string userId = "")
+        public async Task<bool> IsWishedBook(WishedBookDataModel model)
         {
-            WishBookListResponseModel response = new();
+            bool isWishedBook = false;
             try
             {
-                var dataList = await _supabase.GetAllAsync<WishBookDataModel>(); // need to filter with userID
-                List<WishBookViewModel> wishBookList = new();
+                var result = await _supabase
+                    .CountAsync<WishedBookDataModel>
+                    (x =>
+                        x.BookId == model.BookId &&
+                        x.BookCode == model.BookCode
+                    );
+                isWishedBook = result > 0;
+            }
+            catch (Exception)
+            {
 
-                foreach(var data in dataList)
+                throw;
+            }
+            return isWishedBook;
+        }
+
+        public async Task<WishedBookListResponseModel> GetWishBookList(string userId = "")
+        {
+            WishedBookListResponseModel response = new();
+            try
+            {
+                var dataList = await _supabase.GetAllAsync<WishedBookDataModel>(); // need to filter with userID
+                List<WishedBookViewModel> wishBookList = new();
+
+                foreach (var data in dataList)
                 {
-                    var wishBook = new WishBookViewModel
+                    var wishBook = new WishedBookViewModel
                     {
                         WishBookId = data.WishBookId,
                         BookCode = data.BookCode,
@@ -60,7 +84,7 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
                     wishBookList.Add(wishBook);
                 }
 
-                response.WishBookList = wishBookList;
+                response.WishedBookList = wishBookList;
             }
             catch (Exception ex)
             {

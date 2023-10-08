@@ -1,11 +1,11 @@
 ﻿using Postgrest.Attributes;
 using Postgrest.Models;
 
-namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishBook
+namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishedBook
 {
 
     [Table("Tbl_wishbook")]
-    public class WishBookDataModel : BaseModel
+    public class WishedBookDataModel : BaseModel
     {
         [PrimaryKey("wishbook_id")]
         public Guid WishBookId { get; set; }
