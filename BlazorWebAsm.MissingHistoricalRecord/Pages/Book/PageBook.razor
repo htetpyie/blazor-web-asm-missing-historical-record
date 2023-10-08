@@ -4,7 +4,6 @@
 @inject BookmarkService BookmarkService;
 @inject BookmarkState BookmarkState;
 @inject WishedBookService WishedBookService;
-@inject WishedBookState WishedBookState;
 @implements IAsyncDisposable;
 
 @if (Response is not null &&
@@ -20,19 +19,19 @@ Response?.BookName is not null)
                         ? $"{Response.ContentCount} pages"
                         : $"{Response.ContentCount} page";
                     }
-                    <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
-                        <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
-                    </MudTooltip>
-                    <MudTooltip Text="@(IsWishBook ? "Remove from Wish List" : "Add to Wish List")"
+                    <MudTooltip Text="@(IsWishedBook ? "Remove from Wish List" : "Add to Wish List")"
                             Placement="Placement.Bottom" Arrow="true">
-                        <MudToggleIconButton Toggled="IsWishBook"
+                        <MudToggleIconButton Toggled="IsWishedBook"
                                          Icon="@Icons.Material.Filled.FavoriteBorder"
-                                         Color="@Color.Primary" Title="Off"
+                                         Color="@Color.Secondary"
                                          ToggledIcon="@Icons.Material.Filled.Favorite"
-                                         ToggledColor="@Color.Primary"
+                                         ToggledColor="@Color.Secondary"
                                          ToggledChanged="OnChangeWishList"
                                          ToggledTitle="On"
                                          Class="me-2" />
+                    </MudTooltip>
+                    <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
+                        <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
                     </MudTooltip>
                     <MudSpacer />
 
@@ -78,7 +77,6 @@ Response?.BookName is not null)
                                          ToggledIcon="@Icons.Material.Filled.Bookmark"
                                          ToggledColor="@Color.Primary"
                                          ToggledChanged="OnChangeBookMark"
-                                         ToggledTitle="On"
                                          Class="me-2" />
                     </MudTooltip>
 
@@ -180,7 +178,7 @@ Response?.BookName is not null)
 
     private BookContentResponseModel? Response { get; set; }
     private bool IsBookMark { get; set; }
-    private bool IsWishBook { get; set; }
+    private bool IsWishedBook { get; set; }
     private int SearchPageNo { get; set; }
 
     private Lazy<IJSObjectReference> JSModule = new();
@@ -196,7 +194,7 @@ Response?.BookName is not null)
         previousPageNo = PageNo;
 
         LoadingService.EnableLoading();
-        IsWishBook = await WishedBookService.IsWishedBook(GetWishedBookDataModel());
+        IsWishedBook = IsBookIsWishedBook(GetWishedBookDataModel());
         Response = await BookContentService.GetBookPageContents(BookId, PageNo);
 
         LoadingService.DisableLoading();
@@ -204,7 +202,6 @@ Response?.BookName is not null)
         PageNo = Response.LeftPageNo;
         SearchPageNo = PageNo;
     }
-
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -258,6 +255,7 @@ Response?.BookName is not null)
                 CreatedDate = DateTime.Now,
             };
 
+        LoadingService.EnableLoading();
         if (IsBookMark)
         {
             await BookmarkService.RemoveBookmark(bookmark);
@@ -266,15 +264,19 @@ Response?.BookName is not null)
         {
             await BookmarkService.SaveBookmark(bookmark);
         }
+
         IsBookMark = !IsBookMark;
         BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
+
+        LoadingService.DisableLoading();
     }
 
     private async Task OnChangeWishList()
-    {       
+    {
         var data = GetWishedBookDataModel();
 
-        if (IsWishBook)
+        LoadingService.EnableLoading();
+        if (IsWishedBook)
         {
             await WishedBookService.RemoveBookmark(data);
         }
@@ -284,7 +286,9 @@ Response?.BookName is not null)
         }
 
         WishedBookState.WishBookListResponse = await WishedBookService.GetWishBookList();
-        IsWishBook = !IsWishBook;
+        IsWishedBook = !IsWishedBook;
+
+        LoadingService.DisableLoading();
     }
 
     private WishedBookDataModel GetWishedBookDataModel()
@@ -297,6 +301,28 @@ Response?.BookName is not null)
                 BookId = BookIdGuid,
                 BookCode = BookCode
             };
+    }
+
+    private bool IsBookIsWishedBook(WishedBookDataModel data)
+    {
+        bool isWished = false;
+        try
+        {
+            if (WishedBookState is not null && WishedBookState.WishBookListResponse is not null)
+            {
+                isWished = WishedBookState
+                    .WishBookListResponse
+                    .WishedBookList
+                    .Any(x => 
+                        x.BookId == data.BookId &&
+                        x.BookCode == data.BookCode);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        return isWished;
     }
 
 }

@@ -1,11 +1,12 @@
 ﻿@inject BookmarkService BookmarkService
+@implements IDisposable
 
 <MudPaper Class="pa-6 rounded-lg" Square="true" Height="550px;">
     <div class="flex">
         <div>
             <MudImage Src="./img/historybooks.jpg"
                       Style="width:40px; height: 40px; border-radius: 50%;"
-                      Alt="User Profile" Elevation="0"/>
+                      Alt="User Profile" Elevation="0" />
         </div>
         <div class="mx-auto my-auto">
             <div>Anonymous User</div>
@@ -15,7 +16,7 @@
         <div style="font-size: .95rem;" class="mb-3">
             Your Reading Progress
         </div>
-        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75"/>
+        <MudProgressLinear Color="Color.Success" Rounded="true" Size="Size.Small" Value="75" />
         <div style="font-size: 0.75rem; margin-top: 3px;">10 pages left from 3 books</div>
     </div>
 
@@ -38,6 +39,14 @@
             }
         </MudNavGroup>
         <MudNavGroup Title="Wish" Icon="@Icons.Material.Filled.Favorite">
+            @if (WishedBookState.WishBookListResponse is not null)
+            {
+                @foreach (var item in WishedBookState.WishBookListResponse.WishedBookList)
+                {
+                    string link = $@"/read-book/{item.BookId}/{item.BookCode}";
+                    <MudNavLink Href="@link">@item.BookName</MudNavLink>
+                }
+            }
         </MudNavGroup>
     </div>
 </MudPaper>
@@ -50,6 +59,14 @@
     {
         LoadingService.EnableLoading();
         BookmarkResponseList = await BookmarkService.GetBookmarkList();
+        WishedBookState.OnChange += WishBookStateHasChanged;
         LoadingService.DisableLoading();
+    }
+
+    void WishBookStateHasChanged(object sender, EventArgs e) => StateHasChanged();
+
+    void IDisposable.Dispose()
+    {
+        WishedBookState.OnChange -= WishBookStateHasChanged;
     }
 }

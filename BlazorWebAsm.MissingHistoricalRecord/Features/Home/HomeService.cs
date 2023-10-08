@@ -49,10 +49,6 @@ public class HomeService
         return resultList;
     }
 
-    public async Task GetBookmarkList()
-    {
-    }
-
     private async Task<int> GetBookTotalCount()
     {
         var list = await GetAllBook();

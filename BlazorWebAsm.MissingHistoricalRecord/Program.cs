@@ -25,7 +25,7 @@ builder.Services.AddScoped<BookContentService>();
 builder.Services.AddScoped<BookmarkService>();
 builder.Services.AddScoped<WishedBookService>();
 builder.Services.AddScoped<HomeService>();
-builder.Services.AddScoped<BookmarkState>();
-builder.Services.AddScoped<WishedBookState>();
+builder.Services.AddSingleton<BookmarkState>();
+builder.Services.AddSingleton<WishedBookState>();
 
 await builder.Build().RunAsync();

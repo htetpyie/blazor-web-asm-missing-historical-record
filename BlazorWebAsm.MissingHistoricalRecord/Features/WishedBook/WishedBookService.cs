@@ -74,12 +74,14 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishedBook
 
                 foreach (var data in dataList)
                 {
+                    var book = await GetBook(data.BookId);
                     var wishBook = new WishedBookViewModel
                     {
                         WishBookId = data.WishBookId,
                         BookCode = data.BookCode,
                         BookId = data.BookId,
-                        BookName = await GetBookName(data.BookId)
+                        BookName = book.BookTitle,
+                        BookAuthor = book.BookAuthor,
                     };
                     wishBookList.Add(wishBook);
                 }
@@ -94,20 +96,19 @@ namespace BlazorWebAsm.MissingHistoricalRecord.Features.WishedBook
             return response;
         }
 
-        private async Task<string> GetBookName(Guid bookId)
+        private async Task<BookDataModel?> GetBook(Guid bookId)
         {
-            string bookName = string.Empty;
+            BookDataModel? book = new();
             try
             {
-                var book = await _supabase.GetAsync<BookDataModel>(
+                book = await _supabase.GetAsync<BookDataModel>(
                         x => x.BookId == bookId);
-                if (book is not null) bookName = book.BookTitle;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return bookName;
+            return book;
         }
     }
 }

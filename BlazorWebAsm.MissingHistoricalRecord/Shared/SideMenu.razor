@@ -1,7 +1,5 @@
 ﻿@inject BookmarkService BookmarkService
 @inject BookmarkState BookmarkState
-@inject WishedBookState WishBookState
-@inject WishedBookService WishBookService
 @implements IDisposable;
 
 <div style="position:relative">
@@ -20,7 +18,7 @@
     <MudNavMenu Style="padding-top:40px !important;" Margin="Margin.Dense" Color="Color.Warning" Class="pa-2">
         <MudNavLink Match="NavLinkMatch.Prefix" Class="mhr-navlink rounded-b-lg" Icon="@Icons.Material.Outlined.Home" Href="/home">Home</MudNavLink>
         <MudNavLink Class="mhr-navlink" Icon="@Icons.Material.Outlined.MenuBook" Href="/book-list">All Books</MudNavLink>
-        <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Expanded="false" Icon="@Icons.Material.Outlined.Bookmark">
+        <MudNavGroup Class="mhr-navlink" Title="Bookmarks" Icon="@Icons.Material.Outlined.Bookmark">
             @if (BookmarkState.BookMarkList is not null)
             {
                 @foreach (var bookmark in BookmarkState.BookMarkList.BookmarkResponseList)
@@ -35,10 +33,10 @@
                 }
             }
         </MudNavGroup>
-        <MudNavGroup Class="mhr-navlink" Title="Wish List" Expanded="false" Icon="@Icons.Material.Outlined.Favorite">
-            @if (WishBookState.WishBookListResponse is not null)
+        <MudNavGroup Class="mhr-navlink" Title="Wish List" Icon="@Icons.Material.Outlined.Favorite">
+            @if (WishedBookState.WishBookListResponse is not null)
             {
-                @foreach (var item in WishBookState.WishBookListResponse.WishedBookList)
+                @foreach (var item in WishedBookState.WishBookListResponse.WishedBookList)
                 {
                     string link = $@"/read-book/{item.BookId}/{item.BookCode}";
                     <MudNavLink OnClick="() => GoToLink(link)">@item.BookName</MudNavLink>
@@ -64,9 +62,9 @@
     protected async override Task OnInitializedAsync()
     {
         BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
-        WishBookState.WishBookListResponse = await WishBookService.GetWishBookList();
         BookmarkState.OnChange += BookmarkStateHasChanged;
-        WishBookState.OnChange += WishBookStateHasChanged;
+        WishedBookState.OnChange += WishBookStateHasChanged;
+
     }
 
     private void GoToLink(string link)
@@ -80,6 +78,6 @@
     void IDisposable.Dispose()
     {
         BookmarkState.OnChange -= BookmarkStateHasChanged;
-        WishBookState.OnChange -= WishBookStateHasChanged;
+        WishedBookState.OnChange -= WishBookStateHasChanged;
     }
 }
