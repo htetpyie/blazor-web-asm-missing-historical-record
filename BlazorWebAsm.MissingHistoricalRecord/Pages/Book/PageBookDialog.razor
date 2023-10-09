@@ -1,37 +1,55 @@
-﻿<MudDialog>
+﻿@inject BookService BookService
+
+<MudDialog>
     <DialogContent>
-       
+        @if (Loading)
+        {
+            <MudProgressCircular Indeterminate="true"></MudProgressCircular>
+        }
+        else
+        {
+            if (Book is not null)
+            {
+                <MudImage Src="@Book.BookCover" />
+                <div>@Book.BookAuthor</div>
+                <div>@Book.BookDescription</div>
+            }
+
+        }
     </DialogContent>
     <DialogActions>
         <MudButton Color="Color.Primary" OnClick="Close">Ok</MudButton>
     </DialogActions>
 </MudDialog>
 
+
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    [Parameter] public string BookId { get; set; } = string.Empty;
+    [Parameter] public string BookCode { get; set; } = string.Empty;
+
+    private bool Loading = false;
+    private BookViewModel? Book { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        Loading = true;
+        Book = await BookService.GetBookData(GetBookDataModel());
+        Loading = false;
+    }
 
     void Close() => MudDialog.Close(DialogResult.Ok(true));
 
-    void ChangeTitle()
+    private BookDataModel GetBookDataModel()
     {
-        MudDialog.SetTitle("Current time is: " + DateTime.Now);
-    }
+        bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
+        if (!isValid) return new();
 
-    void ToggleCloseButton()
-    {
-        MudDialog.Options.CloseButton = !(MudDialog.Options.CloseButton ?? false);
-        MudDialog.SetOptions(MudDialog.Options);
-    }
-
-    void ToggleFullWidth()
-    {
-        MudDialog.Options.FullWidth = !(MudDialog.Options.FullWidth ?? true);
-        MudDialog.SetOptions(MudDialog.Options);
-    }
-
-    void ToggleHeader()
-    {
-        MudDialog.Options.NoHeader = !(MudDialog.Options.NoHeader ?? false);
-        MudDialog.SetOptions(MudDialog.Options);
+        return new BookDataModel
+            {
+                BookId = BookIdGuid,
+                BookCode = BookCode
+            };
     }
 }

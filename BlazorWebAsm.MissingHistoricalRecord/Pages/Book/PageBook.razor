@@ -8,7 +8,7 @@
 
 @if (Response is not null &&
 Response.ContentCount > 0 &&
-Book is not null)
+Response.BookName is not null)
 {
     <MudGrid>
         <MudItem xs="12">
@@ -19,6 +19,10 @@ Book is not null)
                         ? $"{Response.ContentCount} pages"
                         : $"{Response.ContentCount} page";
                     }
+                   
+                    <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
+                        <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
+                    </MudTooltip>
                     <MudTooltip Text="@(IsWishedBook ? "Remove from Wish List" : "Add to Wish List")"
                             Placement="Placement.Bottom" Arrow="true">
                         <MudToggleIconButton Toggled="IsWishedBook"
@@ -30,16 +34,12 @@ Book is not null)
                                          Class="me-2" />
                     </MudTooltip>
 
-                    <MudTooltip Text="About this book."
+                    <MudTooltip Text="About"
                             Placement="Placement.Bottom" Arrow="true">
                         <MudIconButton Icon="@Icons.Material.Filled.MoreVert"
-                                   Color="@Color.Secondary"
+                                   Color="@Color.Primary"
                                    OnClick="OpenDialog"
                                    Class="me-2" />
-                    </MudTooltip>
-
-                    <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
-                        <span class="me-2" style="font-size: 1rem;">@Book.BookTitle</span>
                     </MudTooltip>
                     <MudSpacer />
 
@@ -185,7 +185,6 @@ Book is not null)
     public int PageNo { get; set; } = 1;
 
     private BookContentResponseModel? Response { get; set; }
-    private BookViewModel Book { get; set; }
     private bool IsBookMark { get; set; }
     private bool IsWishedBook { get; set; }
     private int SearchPageNo { get; set; }
@@ -205,7 +204,6 @@ Book is not null)
         LoadingService.EnableLoading();
         IsWishedBook = IsBookIsWishedBook(GetWishedBookDataModel());
         Response = await BookContentService.GetBookPageContents(BookId, PageNo);
-        Book = await BookService.GetBookData(GetBookDataModel());
 
         LoadingService.DisableLoading();
         IsBookMark = Response.IsBookMark;
@@ -325,7 +323,10 @@ Book is not null)
 
     private void OpenDialog()
     {
-        DialogService.Show<PageBookDialog>("Options Dialog");
+        var parameters = new DialogParameters<PageBookDialog>();
+        parameters.Add(x => x.BookId, BookId);
+        parameters.Add(x => x.BookCode, BookCode);
+        DialogService.Show<PageBookDialog>(Response?.BookName, parameters);
     }
 
     private WishedBookDataModel GetWishedBookDataModel()
@@ -340,15 +341,4 @@ Book is not null)
             };
     }
 
-    private BookDataModel GetBookDataModel()
-    {
-        bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
-        if (!isValid) return new();
-
-        return new BookDataModel
-            {
-                BookId = BookIdGuid,
-                BookCode = BookCode
-            };
-    }
 }

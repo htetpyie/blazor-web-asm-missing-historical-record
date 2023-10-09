@@ -34,6 +34,8 @@ public class BookContentService
             var bookContents = contentData
                 .Select(x => x.Change())
                 .ToList();
+
+            response.BookName = book.BookTitle;
             response.IsBookMark = await IsBookMark(contentData);
             response.BookContents = bookContents;
             response.ContentCount = await GetBookContentCount(book.BookCode);
