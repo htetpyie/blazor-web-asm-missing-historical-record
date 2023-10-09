@@ -37,7 +37,6 @@ public class BookContentService
             response.IsBookMark = await IsBookMark(contentData);
             response.BookContents = bookContents;
             response.ContentCount = await GetBookContentCount(book.BookCode);
-            response.BookName = book.BookTitle;
             response.LeftPageNo = bookContents.Count > 0
                 ? bookContents
                     .Min(x => x.BookContentPageNo)
@@ -51,7 +50,7 @@ public class BookContentService
 
         return response;
     }
- 
+
     private async Task<List<BookContentDataModel>> GetBookContentData(
         string bookCode, int pageNo)
     {

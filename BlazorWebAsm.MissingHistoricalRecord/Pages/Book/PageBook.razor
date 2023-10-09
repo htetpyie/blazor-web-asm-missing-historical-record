@@ -2,13 +2,13 @@
 @page "/read-book/{BookId}/{BookCode}/{PageNo:int}"
 @inject BookContentService BookContentService;
 @inject BookmarkService BookmarkService;
-@inject BookmarkState BookmarkState;
 @inject WishedBookService WishedBookService;
+@inject BookService BookService;
 @implements IAsyncDisposable;
 
 @if (Response is not null &&
 Response.ContentCount > 0 &&
-Response?.BookName is not null)
+Book is not null)
 {
     <MudGrid>
         <MudItem xs="12">
@@ -27,11 +27,19 @@ Response?.BookName is not null)
                                          ToggledIcon="@Icons.Material.Filled.Favorite"
                                          ToggledColor="@Color.Secondary"
                                          ToggledChanged="OnChangeWishList"
-                                         ToggledTitle="On"
                                          Class="me-2" />
                     </MudTooltip>
+
+                    <MudTooltip Text="About this book."
+                            Placement="Placement.Bottom" Arrow="true">
+                        <MudIconButton Icon="@Icons.Material.Filled.MoreVert"
+                                   Color="@Color.Secondary"
+                                   OnClick="OpenDialog"
+                                   Class="me-2" />
+                    </MudTooltip>
+
                     <MudTooltip Text="@totalPage" Placement="Placement.Bottom" Arrow="true">
-                        <span class="me-2" style="font-size: 1rem;">@Response.BookName</span>
+                        <span class="me-2" style="font-size: 1rem;">@Book.BookTitle</span>
                     </MudTooltip>
                     <MudSpacer />
 
@@ -177,6 +185,7 @@ Response?.BookName is not null)
     public int PageNo { get; set; } = 1;
 
     private BookContentResponseModel? Response { get; set; }
+    private BookViewModel Book { get; set; }
     private bool IsBookMark { get; set; }
     private bool IsWishedBook { get; set; }
     private int SearchPageNo { get; set; }
@@ -196,6 +205,7 @@ Response?.BookName is not null)
         LoadingService.EnableLoading();
         IsWishedBook = IsBookIsWishedBook(GetWishedBookDataModel());
         Response = await BookContentService.GetBookPageContents(BookId, PageNo);
+        Book = await BookService.GetBookData(GetBookDataModel());
 
         LoadingService.DisableLoading();
         IsBookMark = Response.IsBookMark;
@@ -291,6 +301,33 @@ Response?.BookName is not null)
         LoadingService.DisableLoading();
     }
 
+    private bool IsBookIsWishedBook(WishedBookDataModel data)
+    {
+        bool isWished = false;
+        try
+        {
+            if (WishedBookState is not null && WishedBookState.WishBookListResponse is not null)
+            {
+                isWished = WishedBookState
+                    .WishBookListResponse
+                    .WishedBookList
+                    .Any(x =>
+                        x.BookId == data.BookId &&
+                        x.BookCode == data.BookCode);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+        return isWished;
+    }
+
+    private void OpenDialog()
+    {
+        DialogService.Show<PageBookDialog>("Options Dialog");
+    }
+
     private WishedBookDataModel GetWishedBookDataModel()
     {
         bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
@@ -303,26 +340,15 @@ Response?.BookName is not null)
             };
     }
 
-    private bool IsBookIsWishedBook(WishedBookDataModel data)
+    private BookDataModel GetBookDataModel()
     {
-        bool isWished = false;
-        try
-        {
-            if (WishedBookState is not null && WishedBookState.WishBookListResponse is not null)
-            {
-                isWished = WishedBookState
-                    .WishBookListResponse
-                    .WishedBookList
-                    .Any(x => 
-                        x.BookId == data.BookId &&
-                        x.BookCode == data.BookCode);
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-        }
-        return isWished;
-    }
+        bool isValid = Guid.TryParse(BookId, out Guid BookIdGuid);
+        if (!isValid) return new();
 
+        return new BookDataModel
+            {
+                BookId = BookIdGuid,
+                BookCode = BookCode
+            };
+    }
 }

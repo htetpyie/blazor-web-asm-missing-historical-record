@@ -14,10 +14,8 @@
                     <div style="cursor: pointer; position: relative;" @onclick="() => { _nav.NavigateTo(bookList); }">
                         <MudTooltip Text="@(isWished ? " Remove from Wish List" : "Add to Wish List" )"
                             Placement="Placement.Right"
-                            Arrow="true"
-                           >
-                            <MudToggleIconButton 
-                                Toggled="isWished"
+                            Arrow="true">
+                            <MudToggleIconButton Toggled="isWished"
                                          Icon="@Icons.Material.Filled.FavoriteBorder"
                                          Color="@Color.Secondary"
                                          ToggledIcon="@Icons.Material.Filled.Favorite"

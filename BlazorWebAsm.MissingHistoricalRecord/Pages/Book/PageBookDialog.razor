@@ -1,0 +1,37 @@
+﻿<MudDialog>
+    <DialogContent>
+       
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="Close">Ok</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void Close() => MudDialog.Close(DialogResult.Ok(true));
+
+    void ChangeTitle()
+    {
+        MudDialog.SetTitle("Current time is: " + DateTime.Now);
+    }
+
+    void ToggleCloseButton()
+    {
+        MudDialog.Options.CloseButton = !(MudDialog.Options.CloseButton ?? false);
+        MudDialog.SetOptions(MudDialog.Options);
+    }
+
+    void ToggleFullWidth()
+    {
+        MudDialog.Options.FullWidth = !(MudDialog.Options.FullWidth ?? true);
+        MudDialog.SetOptions(MudDialog.Options);
+    }
+
+    void ToggleHeader()
+    {
+        MudDialog.Options.NoHeader = !(MudDialog.Options.NoHeader ?? false);
+        MudDialog.SetOptions(MudDialog.Options);
+    }
+}
