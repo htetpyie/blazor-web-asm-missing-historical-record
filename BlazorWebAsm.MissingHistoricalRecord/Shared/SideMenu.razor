@@ -57,14 +57,14 @@
     void ToggleDrawer()
     {
         open = !open;
-    }
+    }   
 
     protected async override Task OnInitializedAsync()
     {
         BookmarkState.BookMarkList = await BookmarkService.GetBookmarkList();
+        WishedBookState.WishBookListResponse = await WishedBookService.GetWishBookList();
         BookmarkState.OnChange += BookmarkStateHasChanged;
         WishedBookState.OnChange += WishBookStateHasChanged;
-
     }
 
     private void GoToLink(string link)

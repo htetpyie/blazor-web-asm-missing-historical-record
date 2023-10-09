@@ -64,7 +64,6 @@
     protected async override Task OnInitializedAsync()
     {
         LoadingService.EnableLoading();
-        WishedBookState.WishBookListResponse = await WishedBookService.GetWishBookList();
         BookListResponse = await HomeService.GetLatestBookList();
         LoadingService.DisableLoading();
     }
