@@ -10,16 +10,26 @@
         {
             if (Book is not null)
             {
-                <MudImage Src="@Book.BookCover" />
+                <MudImage Src="@Book.BookCover" Width="250" />
+                <table style="margin-top:10px;">
+                    <tr>
+                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Author</th>
+                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Author</td>
+                    </tr>
+                    <tr>
+                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Category</th>
+                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Category</td>
+                    </tr>
+                    <tr>
+                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Description</th>
+                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Description</td>
+                    </tr>
+                </table>
                 <div>@Book.BookAuthor</div>
                 <div>@Book.BookDescription</div>
             }
-
         }
     </DialogContent>
-    <DialogActions>
-        <MudButton Color="Color.Primary" OnClick="Close">Ok</MudButton>
-    </DialogActions>
 </MudDialog>
 
 
