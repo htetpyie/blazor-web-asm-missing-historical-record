@@ -2,17 +2,29 @@
              ShowArrows="@arrows"
              ShowBullets="@bullets"
              EnableSwipeGesture="@enableSwipeGesture"
-             AutoCycle="@autocycle" TData="object">
-    <MudCarouselItem Transition="transition" Color="@Color.Info">
+             AutoCycle="@autocycle" 
+             AutoCycleTime="@autocycleTime"
+             TData="object">
+    <MudCarouselItem Transition="transition"  Class="pa-5 rounded-lg">
         <div class="d-flex" style="height:100%">
-            <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Default" Size="@Size.Large" />
+            <MudImage Src="/img/books.png" />
+            <MudText Class="mx-auto my-auto"
+                     Style="padding: 0px 15px;letter-spacing: 1px;font-size: .9rem; word-spacing: 3px;">
+                @descriptionMM
+            </MudText>
         </div>
     </MudCarouselItem>
-    <MudCarouselItem Transition="transition" Color="@Color.Error">
+
+    <MudCarouselItem Transition="transition" Class="pa-5 rounded-lg">
         <div class="d-flex" style="height:100%">
-                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Default" Size="@Size.Large" />
+            <MudImage Src="/img/books.png" />
+            <MudText Class="mx-auto my-auto"
+                     Style="padding: 0px 15px;letter-spacing: 1px;font-size: .9rem; word-spacing: 3px;">
+                @description
+            </MudText>
         </div>
     </MudCarouselItem>
+    
 </MudCarousel>
 
 @code {
@@ -20,7 +32,8 @@
     private bool bullets = true;
     private bool enableSwipeGesture = true;
     private bool autocycle = true;
-    private Transition transition = Transition.Slide;
+    private TimeSpan autocycleTime = TimeSpan.FromSeconds(6);
+    private Transition transition = Transition.Fade;
     private string descriptionMM = "ဤဝဘ်ဆိုဒ်ကို မြန်မာသမိုင်းများနှင့် အခြားသမိုင်းများအပါအဝင် ရာစုနှစ်ပေါင်းများစွာ ပျောက်ဆုံးသွားသော သမိုင်းများကို စိတ်ဝင်စားသူများအတွက် ရည်ရွယ်ပါသည်။ သင်စိတ်ဝင်စားမည့် စာအုပ်များကို ဤဆိုဒ်မှ ရှာဖွေဖတ်ရှုနိုင်ပါသည်။";
     private string description = @" This website is intended for who is interested in histories which is lost for century including Manyanmar histories and other histories.
     You can search and taste the book that you will be interested in from this site.";
