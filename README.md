@@ -1,6 +1,6 @@
 ### Missing Historical Record
 
-<a href="https://htetpyie-blazor-web-asm-mhr.netlify.app/">Live Demo</a>
+[Live Demo](https://htetpyie-blazor-web-asm-mhr.netlify.app/)
 
 #### Features
 * Book Reading
