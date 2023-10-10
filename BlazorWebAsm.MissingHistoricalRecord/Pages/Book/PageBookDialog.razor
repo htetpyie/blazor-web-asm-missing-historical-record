@@ -1,34 +1,35 @@
 ﻿@inject BookService BookService
 
-<MudDialog>
+<MudDialog Style="font-size: 1rem;">
     <DialogContent>
-        @if (Loading)
-        {
-            <MudProgressCircular Indeterminate="true"></MudProgressCircular>
-        }
-        else
-        {
-            if (Book is not null)
+        <div class="">
+            @if (Loading)
             {
-                <MudImage Src="@Book.BookCover" Width="250" />
-                <table style="margin-top:10px;">
-                    <tr>
-                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Author</th>
-                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Author</td>
-                    </tr>
-                    <tr>
-                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Category</th>
-                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Category</td>
-                    </tr>
-                    <tr>
-                        <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: 1rem;">Description</th>
-                        <td>@(!Book.BookAuthor.IsNullOrWhiteSpace() ? Book.BookAuthor : "-") Description</td>
-                    </tr>
-                </table>
-                <div>@Book.BookAuthor</div>
-                <div>@Book.BookDescription</div>
+                <Center>
+                    <MudProgressCircular Indeterminate="true"></MudProgressCircular>
+                </Center>
             }
-        }
+            else
+            {
+                if (Book is not null)
+                {
+                    <MudImage Src="@Book.BookCover" Width="200" Style="margin: 5px auto !important;" />
+                    <table cellspacing="20" style="margin: auto; padding: 10px 5px;">
+                        <tr>
+                            <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: .9rem;">Author</th>
+                            <td style="padding: 10px !important;">-</td>
+                            <td style="font-family:'CenturyBurma';font-size: .8rem; margin-left:5px;">@Book.BookAuthor</td>
+                        </tr>
+                        <tr>
+                            <th style="font-family: 'CenturyBurma';font-weight: 500;letter-spacing: 1px;font-size: .9rem;">Description</th>
+                            <td style="padding: 10px !important;">-</td>
+                            <td style="font-family:'CenturyBurma';font-size: .8rem; margin-left:5px;">@Book.BookDescription</td>
+                        </tr>
+
+                    </table>
+                }
+            }
+        </div>
     </DialogContent>
 </MudDialog>
 
