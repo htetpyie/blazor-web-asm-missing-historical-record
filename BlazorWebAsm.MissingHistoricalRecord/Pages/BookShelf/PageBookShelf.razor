@@ -87,7 +87,9 @@ else if (BookShelf is not null && BookShelf.BookList.Count > 4)
     {
         int pageSize = 8;
         _counter = 0;
+        LoadingService.EnableLoading();
         BookShelf = await BookShelfService.GetBookShelf(pageNo, pageSize);
+        LoadingService.DisableLoading();
     }
 
 
