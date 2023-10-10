@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Features\BookCategory\" />
-    <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 
   <ItemGroup>
