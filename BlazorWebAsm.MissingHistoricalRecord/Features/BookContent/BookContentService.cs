@@ -14,7 +14,7 @@ public class BookContentService
     }
 
     public async Task<BookContentResponseModel?> GetBookPageContents(
-        string bookId, int pageNo = 0)
+        string bookId,string bookCode, int pageNo = 0)
     {
         BookContentResponseModel response = new();
         try

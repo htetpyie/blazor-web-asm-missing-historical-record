@@ -203,7 +203,7 @@ Response.BookName is not null)
 
         LoadingService.EnableLoading();
         IsWishedBook = IsBookIsWishedBook(GetWishedBookDataModel());
-        Response = await BookContentService.GetBookPageContents(BookId, PageNo);
+        Response = await BookContentService.GetBookPageContents(BookId, BookCode, PageNo);
 
         LoadingService.DisableLoading();
         IsBookMark = Response.IsBookMark;
@@ -237,7 +237,7 @@ Response.BookName is not null)
     private async Task ClickOnPage(int pageNo)
     {
         LoadingService.EnableLoading();
-        Response = await BookContentService.GetBookPageContents(BookId, pageNo);
+        Response = await BookContentService.GetBookPageContents(BookId, BookCode, pageNo);
         LoadingService.DisableLoading();
 
         IsBookMark = Response.IsBookMark;
@@ -326,6 +326,7 @@ Response.BookName is not null)
         var parameters = new DialogParameters<PageBookDialog>();
         parameters.Add(x => x.BookId, BookId);
         parameters.Add(x => x.BookCode, BookCode);
+        //var options = new DialogOptions() { CloseButton = true,MaxWidth= MaxWidth.Medium };
         DialogService.Show<PageBookDialog>(Response?.BookName, parameters);
     }
 

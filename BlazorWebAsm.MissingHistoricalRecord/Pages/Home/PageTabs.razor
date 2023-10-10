@@ -92,7 +92,6 @@
 
     void WishBookStateHasChanged(object sender, EventArgs e) => StateHasChanged();
 
-
     private async Task OnChangeWishList(Guid bookId, string bookCode, bool isWishedBook)
     {
         var data = new WishedBookDataModel
