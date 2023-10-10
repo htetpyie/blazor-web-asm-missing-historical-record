@@ -11,7 +11,7 @@
 * Searching
 
 #### Used Technology
-* .Net Core 6.1
+* .Net Core 6.0
 * Blazor Web Assembly
 * Mud Blazor
 * Supabase
